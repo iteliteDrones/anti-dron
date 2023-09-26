@@ -1,0 +1,46 @@
+.products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1300px;
+    padding-top: 120px;
+    position: relative;
+
+    .product{
+        width: 500px;
+        height: 450px;
+
+        h3{
+            color: rgb(54, 54, 56);
+        }
+
+        img{
+            width: 450px;
+        }
+    }
+
+    button{
+        position: absolute;
+        right: 50px;
+        bottom: 30px;
+
+        width: 172px;
+            height: 49px;
+            border-radius: 15px;
+            
+            border: none;
+            background-color: rgb(23, 23, 23);
+
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 149%;
+            overflow: hidden;
+            transition: background-color .6s ease-out;
+
+            &:hover{
+                background-color: #2556ec;
+            }
+    }
+}

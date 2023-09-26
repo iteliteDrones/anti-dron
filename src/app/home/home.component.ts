@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
+
+import gsap from "gsap";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements AfterContentInit{
 
   details: generalDetails[] =
   [
@@ -39,4 +41,39 @@ export class HomeComponent {
       img_num: "4_2"
     }
   ];
+
+  homeParagraph: string;
+
+  @ViewChild("machine_line")
+  machine_line: ElementRef;
+
+  ngAfterContentInit(): void {
+    const text: string = 
+                      `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
+                      An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
+                      ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`;
+
+    for(let i=0; i<text.length; i++)
+    {
+      setTimeout(() => {
+        this.homeParagraph += text[i];
+        if(i == text.length - 1) setTimeout(() => {
+          this.machine_line.nativeElement.remove();
+        }, 1450);
+      }, i * 45 + 60);
+    };
+
+    gsap.fromTo(
+      "h1",
+      {
+        y: -60,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity: 1
+      }
+    )
+    .delay(.5);
+  }
 }

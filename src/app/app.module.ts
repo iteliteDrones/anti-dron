@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeModule } from './home/home.module';
 import { NewsComponent } from './news/news.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewsComponent
+    NewsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

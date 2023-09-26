@@ -6,6 +6,42 @@ $content_text_margin_top: 30px;
         margin-top: 60px;
     }
 
+    section{
+        position: relative;
+        width: 77%;
+        margin: 230px auto 0px auto;
+        padding-bottom: 40px;
+        min-height: calc(100vh - 350px);
+
+        h1{
+            text-align: center;
+            font-size: 70px;
+        }
+
+        p{
+            margin-top: 30px;
+            font-size: 19px;
+            line-height: 32px;
+
+            .machine_line{
+                animation: gleam .6s infinite;
+                font-size: 20px;
+                font-weight: 400;
+            }
+        }
+
+        .line{
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: block;
+            width: 117%;
+            height: 1px;
+            background-color: #9e9999;
+        }
+    }
+
     #counter{
         font-family: Akshar;
         display: flex;
@@ -38,4 +74,19 @@ $content_text_margin_top: 30px;
         padding-right: 0px !important;
     }
 
+}
+
+@keyframes gleam {
+    0%{
+        opacity: 1;
+    }
+    57%{
+        opacity: 1;
+    }
+    58%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
 }
