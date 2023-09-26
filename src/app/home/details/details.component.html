@@ -1,0 +1,87 @@
+
+<div #content class="content content-{{details?.id + 1}}">
+
+  <div class="text">
+
+    <h3 *ngIf="checkType(details.value.header); else header">
+      <span>{{details?.value?.header}}</span>
+    </h3>
+    <ng-template #header>
+      <h3>
+          <span>{{details?.value?.header[0]}}</span>
+          <br>
+          {{details.value.header[1]}}
+      </h3>
+    </ng-template>
+
+    <div class="describe">
+      <p>
+        {{details?.value?.paragraph}}
+      </p>
+      <button #learnMore>Learn More</button>
+    </div>
+
+  </div>
+
+  <div class="image">
+    <img *ngIf="checkType(details.value.img_num); else images" src='{{imagesPath + details?.value?.img_num}}.png' alt="Photo of antenna {{details?.value?.img_num}}">
+
+    <ng-template #images>
+      <img src="{{imagesPath + details?.value?.img_num[0]}}.png" alt="Photo of antenna {{details?.value?.img_num}}">
+      <img src="{{imagesPath + details?.value?.img_num[1]}}.png" alt="Photo of antenna {{details?.value?.img_num}}">
+    </ng-template>
+  </div>
+
+  <div *ngIf="properties" class="particular_details">
+
+    <div  class="properties description">
+      <h4>Description</h4>
+      <p>{{properties.description}}</p>
+    </div>
+    <span class="line_properties"></span>
+
+    <div  class="properties specification">
+      <h4>Specification</h4>
+      <p>{{properties.specification}}</p>
+    </div>
+    <span class="line_properties"></span>
+
+    <div  class="properties mechanical_properties">
+      <h4>Mechanical Properties</h4>
+      <div>
+        Size: {{properties.mechanical_properties.size}}inc
+      </div>
+      <div>
+        Weight: {{properties.mechanical_properties.weight}} kg
+      </div>
+      <div>
+        Color: {{properties.mechanical_properties.color}}
+      </div>
+      <div>
+        Material: {{properties.mechanical_properties.material}}
+      </div>
+    </div>
+    <span class="line_properties"></span>
+
+    <div  class="properties charts">
+
+      <div>
+        <h4>{{properties.charts.header}}</h4>
+        <img src="{{properties.charts[0]}}.png" alt="">
+      </div>
+
+      <div>
+        <h4>{{properties.charts.header}}</h4>
+        <img src="{{properties.charts[1]}}.png" alt="">
+      </div>
+      
+    </div>
+
+    <mat-icon (click)="hideDetails()">close</mat-icon>
+
+  </div>
+
+</div>
+
+<h2 class="background_header">Antennas</h2>
+<span *ngIf="details?.id != 3" class="line"></span>

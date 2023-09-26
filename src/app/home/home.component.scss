@@ -1,0 +1,41 @@
+
+$background: rgba(246, 248, 251, 1);
+$content_text_margin_top: 30px;
+
+    :host .container-fluid:nth-of-type(1) ::ng-deep app-details .content .text{
+        margin-top: 60px;
+    }
+
+    #counter{
+        font-family: Akshar;
+        display: flex;
+        position: fixed;
+    
+        bottom: 7%;
+        right: 5%;
+    
+        flex-direction: column;
+        gap: 25px;
+    
+        span{
+            font-size: 24px;
+            font-weight: 400;
+            text-align: center;
+        }
+    
+        .line{
+            display: block;
+            width: 35px;
+            height: 2px;
+            background-color: #252525;
+        }
+    }
+
+@media(max-width: 800px)
+{
+    .container-fluid{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+}

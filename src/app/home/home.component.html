@@ -1,0 +1,9 @@
+  <div *ngFor="let e of details; let i = index" class="container-fluid">
+    <app-details [details]="{value: e, id: i}"></app-details>
+  </div>
+
+  <div id="counter">
+    <span>01</span>
+    <span class="line"></span>
+    <span>04</span>
+  </div>

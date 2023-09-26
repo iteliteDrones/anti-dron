@@ -1,0 +1,24 @@
+
+<nav class="nav flex justify-content-between">
+  <img class="logo" src="./assets/images/logo.png" alt="logo">
+
+  <div #nav_list class="nav-list">
+    <ul>
+      <li routerLink="/">Home</li>
+      <li routerLink="products">Products</li>
+      <li>Contact</li>
+      <li routerLink="news">News</li>
+      <li>Videos</li>
+    </ul>
+
+  </div>
+
+  <div #bar_menu class="menu">
+    <mat-icon>menu</mat-icon>
+  </div>
+  
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
