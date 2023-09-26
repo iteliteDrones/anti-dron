@@ -42,7 +42,7 @@ export class HomeComponent implements AfterContentInit{
     }
   ];
 
-  homeParagraph: string;
+  homeParagraph: string = "";
 
   @ViewChild("machine_line")
   machine_line: ElementRef;

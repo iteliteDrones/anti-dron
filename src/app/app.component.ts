@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MouseService } from './mouse/mouse.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { MouseService } from './mouse/mouse.service';
 
 export class AppComponent implements AfterViewInit, OnInit {
 
-  constructor(private mouseService: MouseService){}
+  constructor(private mouseService: MouseService, private zone: NgZone,private router: Router){}
 
   title: string = 'anti-drone';
 
@@ -21,6 +22,8 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.mouseService.setMouseStyle();
+    const that = this;
+    
   }
 
   ngAfterViewInit(): void {
