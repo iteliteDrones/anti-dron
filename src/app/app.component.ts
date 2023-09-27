@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements AfterViewInit, OnInit {
+export class AppComponent implements OnInit {
 
-  constructor(private mouseService: MouseService, private zone: NgZone,private router: Router){}
+  constructor(private mouseService: MouseService, private router: Router){}
 
   title: string = 'anti-drone';
 
@@ -21,19 +21,25 @@ export class AppComponent implements AfterViewInit, OnInit {
   barMenu: ElementRef | undefined;
 
   ngOnInit(): void {
+    
     this.mouseService.setMouseStyle();
     const that = this;
-    
+
+    window.onload = () => this.navigate();
   }
 
-  ngAfterViewInit(): void {
-
-    function showList(e: MouseEvent)
-    {
-      
-    };
-
-    this.barMenu?.nativeElement
-    .addEventListener("click", showList);
+  navigate()
+  {
+    document.querySelectorAll("nav .nav-list ul li")
+    .forEach((e) => {
+      e.addEventListener("click", () => {
+        const data = e.getAttribute("data");
+        if(!data) return;
+        
+        this.router.navigate([`${e.getAttribute("data")}`])
+      })
+    })
   }
+
+
 }
