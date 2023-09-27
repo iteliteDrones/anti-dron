@@ -3,16 +3,9 @@
 
   <div class="text">
 
-    <h3 *ngIf="checkType(details.value.header); else header">
-      <span>{{details?.value?.header}}</span>
+    <h3>
+      {{details?.value?.header}}
     </h3>
-    <ng-template #header>
-      <h3>
-          <span>{{details?.value?.header[0]}}</span>
-          <br>
-          {{details.value.header[1]}}
-      </h3>
-    </ng-template>
 
     <div class="describe">
       <p>
@@ -24,12 +17,7 @@
   </div>
 
   <div class="image">
-    <img *ngIf="checkType(details.value.img_num); else images" src='{{imagesPath + details?.value?.img_num}}.png' alt="Photo of antenna {{details?.value?.img_num}}">
-
-    <ng-template #images>
-      <img src="{{imagesPath + details?.value?.img_num[0]}}.png" alt="Photo of antenna {{details?.value?.img_num}}">
-      <img src="{{imagesPath + details?.value?.img_num[1]}}.png" alt="Photo of antenna {{details?.value?.img_num}}">
-    </ng-template>
+    <img src='{{imagesPath + details?.value?.img_num}}.png' alt="Photo of antenna {{details?.value?.img_num}}">
   </div>
 
   <div *ngIf="properties" class="particular_details">

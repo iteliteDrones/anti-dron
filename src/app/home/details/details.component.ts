@@ -72,12 +72,6 @@ export class DetailsComponent implements AfterViewInit{
     }
   }
 
-  //function for headers or images
-  protected checkType(data: string | string[]): boolean
-  {
-    return typeof data != "object";
-  }
-
   hideDetails(): void
   {
     this.properties = null;

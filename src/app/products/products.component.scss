@@ -1,22 +1,66 @@
 .products{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1300px;
+    max-width: 1100px;
     padding-top: 120px;
     position: relative;
+    margin: auto;
+    padding-bottom: 120px;
 
     .product{
-        width: 500px;
-        height: 450px;
-
+        width: 360px;
+        height: 400px;
+        margin-left: 15px;
+        position: relative;
+        padding-top: 14px;
+        transition: box-shadow .4s ease-in, transform .4s ease;
+        transform: rotate3d(1, 0, 0, 55deg);
+        border-radius: 15px;
+        
         h3{
-            color: rgb(54, 54, 56);
+                width: 265px;
+                position: absolute;
+                bottom: 3%; 
+                right: 50%;
+                transform: translate(50%,-50%);
+                text-transform: uppercase;
+                font-family: verdana;
+                font-size: 38px;
+                font-weight: 700;
+                color: #f5f5f5;
+                text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191,
+                1px 13px 1px #919191, 1px 4px 1px #919191,
+                1px 5px 1px #919191, 1px 6px 1px #919191,
+                1px 7px 1px #919191, 1px 8px 1px #919191,
+                1px 3px 1px #919191, 1px 12px 1px #919191,
+                1px 13px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2),
+                1px 25px 15px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4)
+            
         }
 
         img{
-            width: 450px;
+           position: absolute;
+            top: -175px;
+            left: -120px;
+            height: 455px;
+            width: 555px;
+        }
+
+        &:nth-of-type(2) img{
+            left: -80px;
+        }
+
+        &:hover{
+            box-shadow: 5px 12px 19px 7px rgba(175, 177, 188, 1);
+            animation: raise .4s ease-in-out forwards;
+        }
+
+        .base{
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #eab632;
         }
     }
 
@@ -42,5 +86,22 @@
             &:hover{
                 background-color: #2556ec;
             }
+    }
+}
+
+@media (max-width: 520px) {
+   .products {
+    .product{
+        width: 75%;
+    }
+   } 
+}
+
+@keyframes raise {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: -20px;
     }
 }

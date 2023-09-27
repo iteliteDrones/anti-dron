@@ -1,9 +1,9 @@
 .contact{
-    position: absolute;
-    max-width: 650px;
-    top: 500px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    margin-top: 120px;
+    padding-bottom: 70px;
 
     p{
         font-size: 21px;
@@ -28,7 +28,7 @@
 
     h4{
         margin-bottom: 20px;
-        margin-top: 34px;
+        margin-top: 44px;
     }
 }
 
@@ -38,12 +38,5 @@
         h2{
             width: 100%;
         }
-    }
-}
-
-@media(max-width: 450px)
-{
-    .contact{
-        transform: translate(-50%, 0%);
     }
 }
