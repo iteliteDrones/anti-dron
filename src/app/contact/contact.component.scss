@@ -1,7 +1,7 @@
 .contact{
     position: absolute;
     max-width: 650px;
-    top: 50%;
+    top: 240px;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -44,7 +44,6 @@
 @media(max-width: 450px)
 {
     .contact{
-        top: 220px;
         transform: translate(-50%, 0%);
     }
 }

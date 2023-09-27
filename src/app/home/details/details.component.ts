@@ -12,7 +12,7 @@ import { generalDetails, particularDetails } from '../detailsTypes';
   styleUrls: ['./details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DetailsComponent implements AfterViewInit, OnChanges{
+export class DetailsComponent implements AfterViewInit{
 
   constructor(private changeDetRef: ChangeDetectorRef){}
 
@@ -20,10 +20,6 @@ export class DetailsComponent implements AfterViewInit, OnChanges{
   protected imagesPath: string = imagesPath + "/home/content/content_";
 
   protected properties: particularDetails;
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
 
   public ngAfterViewInit(): void {
     this.buttonListener();
