@@ -8,7 +8,7 @@ export class MouseService {
   setMouseStyle(): void
   {
     const ball: HTMLElement | null = document.querySelector(".ball") ;
-    window.addEventListener("mousemove", e => {    
+    document.body.addEventListener("mousemove", e => {    
       if(!ball) return;
       
       ball.style.top = `${e.y}px`;

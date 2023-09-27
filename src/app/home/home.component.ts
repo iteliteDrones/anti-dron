@@ -47,7 +47,11 @@ export class HomeComponent implements AfterContentInit{
   @ViewChild("machine_line")
   machine_line: ElementRef;
 
+  @ViewChild("text")
+  text: ElementRef;
+
   ngAfterContentInit(): void {
+    
     const text: string = 
                       `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
                       An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
@@ -56,7 +60,7 @@ export class HomeComponent implements AfterContentInit{
     for(let i=0; i<text.length; i++)
     {
       setTimeout(() => {
-        this.homeParagraph += text[i];
+        this.text.nativeElement.textContent += text[i];
         if(i == text.length - 1) setTimeout(() => {
           this.machine_line.nativeElement.remove();
         }, 1450);

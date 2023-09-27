@@ -9,8 +9,8 @@ $content_text_margin_top: 30px;
     section{
         position: relative;
         width: 77%;
-        margin: 230px auto 0px auto;
-        padding-bottom: 40px;
+        margin: 200px auto 0px auto;
+        padding-bottom: 90px;
         min-height: calc(100vh - 350px);
 
         h1{
@@ -22,6 +22,7 @@ $content_text_margin_top: 30px;
             margin-top: 30px;
             font-size: 19px;
             line-height: 32px;
+            min-height: 120px;
 
             .machine_line{
                 animation: gleam .6s infinite;

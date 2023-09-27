@@ -108,6 +108,7 @@ main{
     nav{
         flex-direction: column;
         padding-right: 0px;
+
         img{
             width: min-content;
             margin: auto;
@@ -115,16 +116,34 @@ main{
         }
 
         .nav-list, .nav-list ul{
-            width: 95%;
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
+
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
             justify-content: space-around;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
     }
 }
 
 @media(max-width: 800px)
 {
-    nav .logo{
-        width: 200px;
+    nav{
+        
+        .logo{
+            width: 200px;
+        }
+        
+        .nav-list{
+            ul{
+                gap: 0px;
+            }
+        }
     }
 }
 

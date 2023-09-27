@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { MouseService } from './mouse/mouse.service';
 import { Router } from '@angular/router';
 
@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
-  constructor(private mouseService: MouseService, private router: Router){}
+  constructor(private mouseService: MouseService, private router: Router, private changeRef: ChangeDetectorRef){}
 
   title: string = 'anti-drone';
 
@@ -21,22 +21,19 @@ export class AppComponent implements OnInit {
   barMenu: ElementRef | undefined;
 
   ngOnInit(): void {
-    
+
     this.mouseService.setMouseStyle();
     const that = this;
-
-    window.onload = () => this.navigate();
   }
 
-  navigate()
-  {
+  ngAfterViewInit(): void {
     document.querySelectorAll("nav .nav-list ul li")
     .forEach((e) => {
       e.addEventListener("click", () => {
         const data = e.getAttribute("data");
         if(!data) return;
-        
-        this.router.navigate([`${e.getAttribute("data")}`])
+
+        this.router.navigate([`${e.getAttribute("data")}`]);
       })
     })
   }

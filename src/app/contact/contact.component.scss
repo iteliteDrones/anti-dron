@@ -31,3 +31,20 @@
         margin-top: 34px;
     }
 }
+
+@media(max-width: 800px)
+{
+    .contact{
+        h2{
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 450px)
+{
+    .contact{
+        top: 30%;
+        transform: translate(-50%, 0%);
+    }
+}

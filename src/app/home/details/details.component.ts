@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from 'src/app/path';
@@ -12,7 +12,7 @@ import { generalDetails, particularDetails } from '../detailsTypes';
   styleUrls: ['./details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DetailsComponent implements AfterViewInit{
+export class DetailsComponent implements AfterViewInit, OnChanges{
 
   constructor(private changeDetRef: ChangeDetectorRef){}
 
@@ -20,6 +20,10 @@ export class DetailsComponent implements AfterViewInit{
   protected imagesPath: string = imagesPath + "/home/content/content_";
 
   protected properties: particularDetails;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
+  }
 
   public ngAfterViewInit(): void {
     this.buttonListener();
@@ -60,7 +64,6 @@ export class DetailsComponent implements AfterViewInit{
         flag = false;
 
         that.properties = data[that.details.id];
-        that.changeDetRef.detectChanges();
       }
 
       flag = true;
