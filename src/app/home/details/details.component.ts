@@ -51,7 +51,6 @@ export class DetailsComponent implements AfterViewInit, OnChanges{
 
       function show(): void
       {
-        console.log(flag)
         if(!flag) return;
 
         that.button.nativeElement.style.opacity = 0;
@@ -64,6 +63,7 @@ export class DetailsComponent implements AfterViewInit, OnChanges{
         flag = false;
 
         that.properties = data[that.details.id];
+        that.changeDetRef.detectChanges();
       }
 
       flag = true;

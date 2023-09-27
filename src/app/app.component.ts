@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MouseService } from './mouse/mouse.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit, AfterViewInit {
 
-  constructor(private mouseService: MouseService, private router: Router, private changeRef: ChangeDetectorRef){}
+  constructor(private mouseService: MouseService, private router: Router){}
 
   title: string = 'anti-drone';
 
