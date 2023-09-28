@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
 
 import gsap from "gsap";
@@ -10,6 +10,8 @@ import { TextPlugin } from 'gsap/src/all';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterContentInit{
+
+  constructor(private changeDetRef: ChangeDetectorRef){}
 
   details: generalDetails[] =
   [
@@ -37,7 +39,7 @@ export class HomeComponent implements AfterContentInit{
     },
     {
       header: "ADAS 2.1 D",
-      paragraph: `This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 6GHz with a gain of up tuo12 dBi.
+      paragraph: `This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 6GHz with a gain of up to 12 dBi.
                   The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
       img_num: "4_2"
     }
@@ -82,5 +84,9 @@ export class HomeComponent implements AfterContentInit{
       }
     )
     .delay(.5);
+
+    setTimeout(() => {
+      this.changeDetRef.detach();
+    }, 500);
   }
 }

@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProductsComponent } from './products/products.component';
-import { NewsComponent } from './news/news.component';
-
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
-  {path: "products", component: ProductsComponent},
-  {path: "news", component: NewsComponent},
+  {path: "products", loadChildren: () => import("./products/products.module").then(m => m.ProductsModule)},
+  {path: "contact", loadChildren: () => import("./contact/contact.module").then(m => m.ContactModule)},
   
-  {path: "contact", component: ContactComponent},
+  {path: "news", loadChildren: () => import("./news/news.module").then(m => m.NewsModule)},
   {path: "**", component: HomeComponent}
 ];
 

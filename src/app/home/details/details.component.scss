@@ -165,6 +165,11 @@ $content_text_margin_top: 30px;
                     text-align: center;
                     margin-bottom: 15px;
                 }
+
+                img{
+                    width: 100%;
+                    max-width: 650px;
+                }
             }
 
             
@@ -256,7 +261,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
         width: 100% !important;
         gap: 0px !important;
 
-        padding-right: 50px;
+        padding-right: 20px;
 
         .text {
             h3 {
@@ -295,6 +300,6 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     }
 
     .content{
-        padding: 0px 0px 0px 20px;
+        padding: 0px 1px 0px 10px;
     }
 }
