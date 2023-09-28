@@ -25,9 +25,12 @@ $content_text_margin_top: 30px;
             min-height: 120px;
 
             .machine_line{
-                animation: gleam .6s infinite;
                 font-size: 20px;
                 font-weight: 400;
+            }
+
+            .write_line{
+                animation: gleam .6s infinite;
             }
         }
 

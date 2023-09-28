@@ -2,6 +2,7 @@ import { AfterContentInit, Component, ElementRef, ViewChild } from '@angular/cor
 import { generalDetails } from './detailsTypes';
 
 import gsap from "gsap";
+import { TextPlugin } from 'gsap/src/all';
 
 @Component({
   selector: 'app-home',
@@ -47,25 +48,27 @@ export class HomeComponent implements AfterContentInit{
   @ViewChild("machine_line")
   machine_line: ElementRef;
 
-  @ViewChild("text")
-  text: ElementRef;
+  @ViewChild("write_line")
+  writeLine: ElementRef;
 
   ngAfterContentInit(): void {
-    
-    const text: string = 
-                      `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
-                      An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
-                      ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`;
 
-    for(let i=0; i<text.length; i++)
+    gsap.registerPlugin(TextPlugin);
+
+    gsap.to(".machine_line", 
     {
+      text: {value: `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
+      An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
+      ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`},
+      duration: 14,
+      delay: 1,
+      ease: "none"
+    })
+    .then(() => {
       setTimeout(() => {
-        this.text.nativeElement.textContent += text[i];
-        if(i == text.length - 1) setTimeout(() => {
-          this.machine_line.nativeElement.remove();
-        }, 1450);
-      }, i * 45 + 60);
-    };
+        this.writeLine.nativeElement.remove();
+      }, 1150);
+    });
 
     gsap.fromTo(
       "h1",
