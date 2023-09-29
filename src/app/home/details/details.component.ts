@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from 'src/app/path';
@@ -9,8 +9,7 @@ import { generalDetails, particularDetails } from '../detailsTypes';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements AfterViewInit{
 
@@ -35,6 +34,8 @@ export class DetailsComponent implements AfterViewInit{
   {
     let flag: boolean = false;
     const that = this;
+
+    let time;
 
     fromEvent(this.button.nativeElement, "mousemove")
     .subscribe(showProperties);
@@ -63,7 +64,9 @@ export class DetailsComponent implements AfterViewInit{
       }
 
       flag = true;
-      setTimeout(show, 1300);
+
+      if(time) clearTimeout(time);
+      time = setTimeout(show, 1300);
     };
 
     function leaveFromButton()
@@ -74,10 +77,12 @@ export class DetailsComponent implements AfterViewInit{
 
   hideDetails(): void
   {
+
     this.properties = null;
     this.button.nativeElement.style.display = "block";
 
     this.button.nativeElement.style.opacity = 1;
+    this.changeDetRef.detectChanges();
   }
 
 }

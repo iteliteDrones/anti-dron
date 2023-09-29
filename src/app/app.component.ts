@@ -21,9 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   barMenu: ElementRef | undefined;
 
   ngOnInit(): void {
-
     this.mouseService.setMouseStyle();
-    const that = this;
   }
 
   ngAfterViewInit(): void {
@@ -36,6 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.router.navigate([`${e.getAttribute("data")}`]);
       })
     })
+
   }
 
 

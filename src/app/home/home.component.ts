@@ -84,9 +84,5 @@ export class HomeComponent implements AfterContentInit{
       }
     )
     .delay(.5);
-
-    setTimeout(() => {
-      this.changeDetRef.detach();
-    }, 500);
   }
 }

@@ -1,3 +1,11 @@
+app-details{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .products{
     width: 100%;
     max-width: 1100px;
@@ -11,10 +19,20 @@
         height: 400px;
         margin-left: 15px;
         position: relative;
+        top: 0;
         padding-top: 14px;
-        transition: box-shadow .4s ease-in, transform .4s ease;
+        transition: box-shadow .4s ease-in;
         transform: rotate3d(1, 0, 0, 55deg);
         border-radius: 15px;
+
+        .cover{
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
         
         h3{
                 width: 265px;
@@ -41,10 +59,7 @@
             left: -80px;
         }
 
-        &:hover{
-            box-shadow: 5px 12px 19px 7px rgba(175, 177, 188, 1);
-            animation: raise .4s ease-in-out forwards;
-        }
+        
 
         .base{
             position: absolute;
@@ -54,6 +69,11 @@
             height: 10px;
             background-color: #eab632;
         }
+    }
+
+    ::ng-deep .raise{
+        box-shadow: 5px 12px 19px 7px rgba(175, 177, 188, 1);
+        animation: raise .4s ease-in-out forwards;
     }
 
     button{
