@@ -9,7 +9,7 @@ import { generalDetails, particularDetails } from '../detailsTypes';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['../../details.scss']
 })
 export class DetailsComponent implements AfterViewInit{
 

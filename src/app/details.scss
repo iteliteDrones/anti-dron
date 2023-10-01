@@ -1,3 +1,4 @@
+
 $background: rgba(246, 248, 251, 1);
 $content_text_margin_top: 30px;
 
@@ -112,6 +113,8 @@ $content_text_margin_top: 30px;
         $top: 110;
 
         .properties{
+
+            width: 100%;
 
             &.mechanical_properties{
                 width: 100%;

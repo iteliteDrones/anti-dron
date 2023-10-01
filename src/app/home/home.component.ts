@@ -1,4 +1,4 @@
-import { AfterContentInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
 
 import gsap from "gsap";
@@ -9,7 +9,7 @@ import { TextPlugin } from 'gsap/src/all';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterContentInit{
+export class HomeComponent implements AfterViewInit{
 
   constructor(private changeDetRef: ChangeDetectorRef){}
 
@@ -53,7 +53,7 @@ export class HomeComponent implements AfterContentInit{
   @ViewChild("write_line")
   writeLine: ElementRef;
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
 
     gsap.registerPlugin(TextPlugin);
 
@@ -84,5 +84,40 @@ export class HomeComponent implements AfterContentInit{
       }
     )
     .delay(.5);
+
+    this.scrollEvent();
+  }
+
+  scrollEvent()
+  {
+    let total: number = 0;
+    let maxTopProperty: number;
+
+    const elements = document.getElementsByClassName("container-fluid");
+    const span = document.getElementById("counter").getElementsByTagName("span").item(0);
+
+    Array.from(elements)
+    .forEach((e: HTMLElement, id: number) => {
+      const result: number = document.body.scrollTop / e.offsetTop;
+      if(result > 0.85 && result < 1.2) span.textContent = "0"+(id+1);
+      
+      total++;
+      if(total == elements.length) maxTopProperty = e.offsetTop + window.innerHeight;
+    });
+    
+
+    function scrollListener(e: MouseEvent)
+    {
+      const result: number = Math.round(((document.body.scrollTop / maxTopProperty) * 1000)) / 10;
+      const divideNumbers = (Math.round((result / 20) * 10) / 10).toString().split(".");
+
+      const secondNumber = Number(divideNumbers[1]);
+      const numberOfCurrentElement = Number(divideNumbers[0]) + 1;
+
+      if(secondNumber > 2 && secondNumber < 9 ) span.textContent = "0" + numberOfCurrentElement;
+    };
+
+    document.getElementsByTagName("body")
+    .item(0).addEventListener("scroll", scrollListener);
   }
 }
