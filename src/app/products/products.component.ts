@@ -33,6 +33,7 @@ export class ProductsComponent implements AfterViewInit{
       if(!e.target['classList'].contains("cover")) return;
       
       this.detailsParent = data[`${e.target.getAttribute("data-id")}`];
+      console.log(this.detailsParent)
     };
 
     this.productsElement.nativeElement

@@ -1,9 +1,11 @@
 app-details{
     position: absolute;
-    top: 0;
+    top: 145px;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 3;
+    animation: loom .5s ease-in forwards;
 }
 
 .products{
@@ -115,5 +117,14 @@ app-details{
     }
     100%{
         top: -20px;
+    }
+}
+
+@keyframes loom {
+    0%{
+        background-color: transparent;
+    }
+    100%{
+        background-color: rgb(246, 248, 251);;
     }
 }

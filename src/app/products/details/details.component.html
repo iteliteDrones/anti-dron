@@ -1,3 +1,46 @@
-<div class="details">
-    
-</div>
+ 
+    <div *ngIf="detailsChild" class="particular_details">
+  
+      <div  class="properties description">
+        <h4>Description</h4>
+        <p>{{detailsChild.description}}</p>
+      </div>
+  
+      <div  class="properties specification">
+        <h4>Specification</h4>
+        <p>{{detailsChild.specification}}</p>
+      </div>
+  
+      <div  class="properties mechanical_properties">
+        <h4>Mechanical Properties</h4>
+        <div>
+          Size: {{detailsChild.mechanical_properties.size}}inch
+        </div>
+        <div>
+          Weight: {{detailsChild.mechanical_properties.weight}} kg
+        </div>
+        <div>
+          Color: {{detailsChild.mechanical_properties.color}}
+        </div>
+        <div>
+          Material: {{detailsChild.mechanical_properties.material}}
+        </div>
+      </div>
+      <span class="line_properties"></span>
+  
+      <div  class="properties charts">
+  
+        <div>
+          <h4>{{detailsChild.charts.header}}</h4>
+          <img src="{{detailsChild.charts[0]}}.jpg" alt="">
+        </div>
+  
+        <div>
+          <h4>{{detailsChild.charts.header}}</h4>
+          <img src="{{detailsChild.charts[1]}}.jpg" alt="">
+        </div>
+        
+      </div>
+  
+    </div>
+  

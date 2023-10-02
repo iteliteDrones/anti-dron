@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from 'src/app/path';
@@ -9,7 +9,8 @@ import { generalDetails, particularDetails } from '../detailsTypes';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
+  styleUrls: ['./details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements AfterViewInit{
 
