@@ -1,4 +1,5 @@
-<app-details *ngIf="detailsParent" [detailsChild]="detailsParent"></app-details>
+
+<app-details *ngIf="detailsParent" [detailsChild]="detailsParent" (toParent)="hideDetails($event)"></app-details>
 
 <div #products class="products d-flex flex-wrap justify-content-center">
     <div class="product">

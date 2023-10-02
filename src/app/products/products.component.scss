@@ -4,8 +4,9 @@ app-details{
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 3;
-    animation: loom .5s ease-in forwards;
+    animation: show .6s ease-in forwards;
+    z-index: 12;
+    padding: 75px 90px;
 }
 
 .products{
@@ -120,11 +121,11 @@ app-details{
     }
 }
 
-@keyframes loom {
+@keyframes show {
     0%{
         background-color: transparent;
     }
     100%{
-        background-color: rgb(246, 248, 251);;
+        background-color: rgba(246, 248, 251, 1);
     }
 }

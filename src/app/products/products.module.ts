@@ -5,6 +5,7 @@ import { ProductsComponent } from './products.component';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DetailsComponent } from './details/details.component';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    MatIconModule,
     RouterModule.forChild(routes)
   ]
 })

@@ -56,4 +56,9 @@ export class ProductsComponent implements AfterViewInit{
     this.productsElement.nativeElement
     .addEventListener("mousemove", moveElement)
   }
+
+  hideDetails(data: object)
+  {
+    this.detailsParent = null;
+  }
 }
