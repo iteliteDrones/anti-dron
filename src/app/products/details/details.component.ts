@@ -9,6 +9,7 @@ import { gsap } from 'gsap/gsap-core';
   styleUrls: ['../../details.scss']
 })
 export class DetailsComponent implements AfterViewInit{
+  
   @Input() detailsChild;
   @Output() toParent: EventEmitter<object> = new EventEmitter<object>();
 

@@ -1,10 +1,10 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from 'src/app/path';
-import { data } from './paticularDetails';
-
 import { generalDetails, particularDetails } from '../detailsTypes';
+
+import { DetailsService } from './details.service';
 
 @Component({
   selector: 'app-details',
@@ -14,16 +14,15 @@ import { generalDetails, particularDetails } from '../detailsTypes';
 })
 export class DetailsComponent implements AfterViewInit{
 
-  constructor(private changeDetRef: ChangeDetectorRef){}
+  constructor(private changeDetRef: ChangeDetectorRef, private detailsService: DetailsService){}
 
   @Input() details: {value: generalDetails, id: number} | null = null;
+  @Output() refreshDetailsComponentSize: boolean;
+  
   protected imagesPath: string = imagesPath + "/home/content/content_";
+  private flag: boolean = false;
 
   protected properties: particularDetails;
-
-  public ngAfterViewInit(): void {
-    this.buttonListener();
-  }
 
   @ViewChild("content")
   content: ElementRef;
@@ -31,54 +30,16 @@ export class DetailsComponent implements AfterViewInit{
   @ViewChild("learnMore")
   button: ElementRef;
 
-  private buttonListener(): void
-  {
-    let flag: boolean = false;
-    const that = this;
-
-    let time;
-
+  public ngAfterViewInit(): void {
     fromEvent(this.button.nativeElement, "mousemove")
-    .subscribe(showProperties);
+    .subscribe(this.detailsService.showProperties.bind(this, this.button));
 
     fromEvent(this.button.nativeElement, "mouseleave")
-    .subscribe(leaveFromButton);
-
-    function showProperties(e: MouseEvent): void
-    {
-
-      function show(): void
-      {
-        if(!flag) return;
-
-        that.button.nativeElement.style.opacity = 0;
-
-        setTimeout(() => {
-          that.button.nativeElement.style.display = "none";
-          flag = true;
-        }, 1200);
-
-        flag = false;
-
-        that.properties = data[that.details.id];
-        that.changeDetRef.detectChanges();
-      }
-
-      flag = true;
-
-      if(time) clearTimeout(time);
-      time = setTimeout(show, 1300);
-    };
-
-    function leaveFromButton()
-    {
-      flag = false;
-    }
+    .subscribe(this.detailsService.leaveFromButton.bind(this, this));
   }
 
   hideDetails(): void
   {
-
     this.properties = null;
     this.button.nativeElement.style.display = "block";
 

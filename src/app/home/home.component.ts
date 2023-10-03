@@ -1,17 +1,22 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
 
-import gsap from "gsap";
-import { TextPlugin } from 'gsap/src/all';
+import { HomeService } from './home.service';
+import { DetailsService } from './details/details.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit{
+export class HomeComponent implements AfterViewInit, OnInit{
 
-  constructor(private changeDetRef: ChangeDetectorRef){}
+  constructor(private homeService: HomeService, private detailsService: DetailsService){}
+
+  private elements: HTMLCollectionOf<Element> = document.getElementsByClassName("container-fluid");
+
+  private homeParagraph: string = "";
+  private topProperties: {y: number, size: number}[] = [];
 
   details: generalDetails[] =
   [
@@ -45,79 +50,20 @@ export class HomeComponent implements AfterViewInit{
     }
   ];
 
-  homeParagraph: string = "";
-
   @ViewChild("machine_line")
   machine_line: ElementRef;
 
   @ViewChild("write_line")
   writeLine: ElementRef;
 
+  ngOnInit(): void {
+    this.detailsService.changeSizeSubject
+    .subscribe(this.homeService.setSizes.bind(this));
+  }
+
   ngAfterViewInit(): void {
 
-    gsap.registerPlugin(TextPlugin);
-
-    gsap.to(".machine_line", 
-    {
-      text: {value: `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
-      An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
-      ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`},
-      duration: 14,
-      delay: 1,
-      ease: "none"
-    })
-    .then(() => {
-      setTimeout(() => {
-        this.writeLine.nativeElement.remove();
-      }, 1150);
-    });
-
-    gsap.fromTo(
-      "h1",
-      {
-        y: -60,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1
-      }
-    )
-    .delay(.5);
-
-    this.scrollEvent();
+    this.homeService.init.call(this);
   }
 
-  scrollEvent()
-  {
-    let total: number = 0;
-    let maxTopProperty: number;
-
-    const elements = document.getElementsByClassName("container-fluid");
-    const span = document.getElementById("counter").getElementsByTagName("span").item(0);
-
-    Array.from(elements)
-    .forEach((e: HTMLElement, id: number) => {
-      const result: number = document.body.scrollTop / e.offsetTop;
-      if(result > 0.85 && result < 1.2) span.textContent = "0"+(id+1);
-      
-      total++;
-      if(total == elements.length) maxTopProperty = e.offsetTop + window.innerHeight;
-    });
-    
-
-    function scrollListener(e: MouseEvent)
-    {
-      const result: number = Math.round(((document.body.scrollTop / maxTopProperty) * 1000)) / 10;
-      const divideNumbers = (Math.round((result / 20) * 10) / 10).toString().split(".");
-
-      const secondNumber = Number(divideNumbers[1]);
-      const numberOfCurrentElement = Number(divideNumbers[0]) + 1;
-
-      if(secondNumber > 2 && secondNumber < 9 ) span.textContent = "0" + numberOfCurrentElement;
-    };
-
-    document.getElementsByTagName("body")
-    .item(0).addEventListener("scroll", scrollListener);
-  }
 }

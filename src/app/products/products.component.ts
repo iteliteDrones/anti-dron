@@ -11,10 +11,10 @@ import { particularDetails } from '../home/detailsTypes';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements AfterViewInit{
-  domesticPath = imagesPath + "home/content"
 
   constructor(private router: Router){}
 
+  domesticPath = imagesPath + "home/content"
   detailsParent: particularDetails;
 
   navigate()
@@ -31,9 +31,7 @@ export class ProductsComponent implements AfterViewInit{
     function showProductDetails(e: Event | any)
     {
       if(!e.target['classList'].contains("cover")) return;
-      
       this.detailsParent = data[`${e.target.getAttribute("data-id")}`];
-      console.log(this.detailsParent)
     };
 
     this.productsElement.nativeElement
@@ -57,7 +55,7 @@ export class ProductsComponent implements AfterViewInit{
     .addEventListener("mousemove", moveElement)
   }
 
-  hideDetails(data: object)
+  hideDetails()
   {
     this.detailsParent = null;
   }

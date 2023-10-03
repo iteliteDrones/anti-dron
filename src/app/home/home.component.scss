@@ -55,12 +55,30 @@ $content_text_margin_top: 30px;
         right: 5%;
     
         flex-direction: column;
-        gap: 25px;
+        gap: 12px;
     
         span{
             font-size: 24px;
             font-weight: 400;
             text-align: center;
+            overflow: hidden;
+            position: relative;
+            width: 29px;
+            text-align: inherit;
+
+            @for $i from 2 through 5{
+                .number:nth-of-type(#{$i})
+                {
+                    top: calc(($i - 2) * 30px );
+                }
+            }
+
+            .number{
+                position: absolute;
+                width: auto;     
+                transition: top .5s ease-in;           
+            }
+
         }
     
         .line{
@@ -68,6 +86,8 @@ $content_text_margin_top: 30px;
             width: 35px;
             height: 2px;
             background-color: #252525;
+            position: relative;
+            left: -6px;
         }
     }
 
@@ -78,6 +98,13 @@ $content_text_margin_top: 30px;
         padding-right: 0px !important;
     }
 
+    section{
+        min-height: 800px;
+
+        h1{
+            font-size: 60px;
+        }
+    }
 }
 
 @keyframes gleam {
