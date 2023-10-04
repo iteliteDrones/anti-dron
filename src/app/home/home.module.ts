@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { DetailsComponent } from './details/details.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { NgxResizeObserverModule } from 'ngx-resize-observer';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    NgxResizeObserverModule
   ],
   exports: [HomeComponent]
 })

@@ -4,14 +4,16 @@ import { generalDetails } from './detailsTypes';
 import { HomeService } from './home.service';
 import { DetailsService } from './details/details.service';
 
+import { debounceTime } from 'rxjs';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit, OnInit{
+export class HomeComponent implements AfterViewInit {
 
-  constructor(private homeService: HomeService, private detailsService: DetailsService){}
+  constructor(public homeService: HomeService, private detailsService: DetailsService){}
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName("container-fluid");
 
@@ -56,14 +58,14 @@ export class HomeComponent implements AfterViewInit, OnInit{
   @ViewChild("write_line")
   writeLine: ElementRef;
 
-  ngOnInit(): void {
-    this.detailsService.changeSizeSubject
-    .subscribe(this.homeService.setSizes.bind(this));
-  }
-
   ngAfterViewInit(): void {
 
-    this.homeService.init.call(this);
+    this.homeService.init(this.writeLine, this.elements);
+    
   }
 
+  handleResize(event)
+  {
+    this.homeService.setSizes(this.elements);
+  }
 }

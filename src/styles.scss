@@ -71,3 +71,10 @@ body { font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $bac
   z-index: 13;
   pointer-events: none;
 }
+
+@media (max-width: 1000px) {
+  .ball{
+    display: none;
+  }
+  
+}

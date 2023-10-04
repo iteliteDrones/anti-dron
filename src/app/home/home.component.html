@@ -10,7 +10,7 @@
     <span class="line"></span>
   </section>
   
-  <div *ngFor="let e of details; let i = index" class="container-fluid">
+  <div (onResize)="handleResize($event)" *ngFor="let e of details; let i = index" class="container-fluid">
     <app-details [details]="{value: e, id: i}"></app-details>
   </div>
 

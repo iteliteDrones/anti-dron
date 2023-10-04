@@ -1,44 +1,41 @@
 import { Injectable } from '@angular/core';
 import { data } from './paticularDetails';
-import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailsService {
 
-  public changeSizeSubject: Subject<boolean> = new Subject<boolean>();
+  private time;
 
-  showProperties(this, button): void
+  showProperties(button, flag): void
     {
-      let time;
-
       function show(): void
       {
-        if(!this.flag) return;
+        if(!this.flag.value) return;
 
-        this.button.nativeElement.style.opacity = 0;
-        this.detailsService.changeSizeSubject.next(true);
+        button.nativeElement.style.opacity = 0;
 
         setTimeout(() => {
           button.nativeElement.style.display = "none";
           this.flag = true;
         }, 1200);
 
-        this.flag = false;
+        this.flag.value = false;
 
         this.properties = data[this.details.id];
         this.changeDetRef.detectChanges();
       }
 
-      this.flag = true;
+      flag.value = true;
 
-      if(time) clearTimeout(time);
-      time = setTimeout(show.bind(this), 1300);
+      if(this.time) clearTimeout(this.time);
+      this.time = setTimeout(show.bind(this), 1300);
     };
 
-    leaveFromButton(this)
+    leaveFromButton(flag)
     {
-      this.flag = false;
+      flag.value = false;
+      if(this.time) clearTimeout(this.time);
     }
 }

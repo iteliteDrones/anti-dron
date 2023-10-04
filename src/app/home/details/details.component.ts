@@ -20,7 +20,7 @@ export class DetailsComponent implements AfterViewInit{
   @Output() refreshDetailsComponentSize: boolean;
   
   protected imagesPath: string = imagesPath + "/home/content/content_";
-  private flag: boolean = false;
+  private flag = {value: false};
 
   protected properties: particularDetails;
 
@@ -32,10 +32,10 @@ export class DetailsComponent implements AfterViewInit{
 
   public ngAfterViewInit(): void {
     fromEvent(this.button.nativeElement, "mousemove")
-    .subscribe(this.detailsService.showProperties.bind(this, this.button));
+    .subscribe(this.detailsService.showProperties.bind(this, this.button, this.flag));
 
     fromEvent(this.button.nativeElement, "mouseleave")
-    .subscribe(this.detailsService.leaveFromButton.bind(this, this));
+    .subscribe(this.detailsService.leaveFromButton.bind(this, this.flag));
   }
 
   hideDetails(): void
