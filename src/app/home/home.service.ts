@@ -9,7 +9,6 @@ import { ScrollTrigger } from 'gsap/all';
 })
 export class HomeService {
 
-  private initSize: boolean;
   private topProperties;
 
   public init(writeLine, elements): void
@@ -47,7 +46,7 @@ export class HomeService {
 
     Array.from(elements)
     .forEach((e: HTMLElement) => {
-      gsap.fromTo(e,
+      gsap.fromTo(e.querySelector(".content"),
         {
           y: '-=100',
           opacity: 0
@@ -77,10 +76,6 @@ export class HomeService {
     Array.from(elements)
     .forEach((e: HTMLElement) => {
 
-      const additionalHeight: number = window.innerWidth < 800?
-       document.querySelector("section").offsetHeight + document.querySelector("nav").offsetHeight
-       : 0;
-
        this.topProperties.push(
         {
           y: e.offsetTop, 
@@ -94,8 +89,6 @@ export class HomeService {
   {
 
     const span = document.getElementsByClassName("number");
-    gsap.registerPlugin(ScrollTrigger);
-
     let currentElementID: number;
 
     function scrollAnim(id): boolean
@@ -111,23 +104,13 @@ export class HomeService {
       return false;
     };
 
-    const conditions = {
-      mobile: 'value.y - window.innerHeight / 2 < document.body.scrollTop && (value.y - window.innerHeight / 2) + value.size > document.body.scrollTop',
-      pc: 'value.y - window.innerHeight / 2.2 < document.body.scrollTop && (value.y - window.innerHeight / 2.2) + value.size > document.body.scrollTop'
-    };
-
-    let x;
+    const condition = (value: number) => 'value.y - window.innerHeight /'+value+' < document.body.scrollTop && (value.y - window.innerHeight / '+value+') + value.size > document.body.scrollTop';
 
     document.body.addEventListener("scroll", () => {
       
       this.topProperties.every((value, id: number) => {
-        if(x) clearTimeout(x);
-        x = setTimeout(() => {
-          console.log(document.body.scrollTop);
-          console.log(this.topProperties)
-        }, 1000);
         
-        if(window.innerWidth > 1000? eval(conditions.pc): eval(conditions.mobile)) return scrollAnim(id);
+        if(window.innerWidth > 1000? eval(condition(2.2)): eval(condition(2))) return scrollAnim(id);
         return true;
       });
 

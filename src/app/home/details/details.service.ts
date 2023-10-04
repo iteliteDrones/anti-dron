@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { data } from './paticularDetails';
+import gsap from 'gsap';
 
 @Injectable({
   providedIn: 'root'
@@ -7,35 +8,57 @@ import { data } from './paticularDetails';
 export class DetailsService {
 
   private time;
+  private flag: boolean = false;
 
-  showProperties(button, flag): void
-    {
-      function show(): void
+  gsapDetails(content: HTMLElement)
+  {
+
+    Array.from(content.getElementsByClassName("properties"))
+    .forEach((item: HTMLElement, id: number) => {
+      gsap.fromTo(item,
       {
-        if(!this.flag.value) return;
+        x: "-=150px",
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1
+      }).delay(id + 1);
+    });
+    
+  }
 
-        button.nativeElement.style.opacity = 0;
-
-        setTimeout(() => {
-          button.nativeElement.style.display = "none";
-          this.flag = true;
-        }, 1200);
-
-        this.flag.value = false;
-
-        this.properties = data[this.details.id];
-        this.changeDetRef.detectChanges();
-      }
-
-      flag.value = true;
-
-      if(this.time) clearTimeout(this.time);
-      this.time = setTimeout(show.bind(this), 1300);
-    };
-
-    leaveFromButton(flag)
+  showProperties(this): void
+  {
+    const detailsService = this.detailsService;
+    function show(): void
     {
-      flag.value = false;
-      if(this.time) clearTimeout(this.time);
+      if(!detailsService.flag) return;
+
+      this.button.nativeElement.style.opacity = 0;
+
+      setTimeout(() => {
+        this.button.nativeElement.style.display = "none";
+        detailsService.flag = true;
+      }, 1200);
+
+      detailsService.flag = false;
+      this.properties = data[this.details.id];
+
+      
+      this.changeDetRef.detectChanges();
+      detailsService.gsapDetails(this.content.nativeElement);
     }
+
+    detailsService.flag = true;
+
+    if(detailsService.time) clearTimeout(detailsService.time);
+    detailsService.time = setTimeout(show.bind(this), 1300);
+  };
+
+  leaveFromButton(this)
+  {
+    this.detailsService.flag = false;
+    if(this.detailsService.time) clearTimeout(this.detailsService.time);
+  }
 }

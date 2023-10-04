@@ -1,10 +1,8 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
 
 import { HomeService } from './home.service';
 import { DetailsService } from './details/details.service';
-
-import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +14,6 @@ export class HomeComponent implements AfterViewInit {
   constructor(public homeService: HomeService, private detailsService: DetailsService){}
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName("container-fluid");
-
-  private homeParagraph: string = "";
-  private topProperties: {y: number, size: number}[] = [];
 
   details: generalDetails[] =
   [
