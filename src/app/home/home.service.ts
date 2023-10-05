@@ -14,7 +14,7 @@ export class HomeService {
   public init(writeLine, elements): void
   {
     gsap.registerPlugin(TextPlugin);
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(".machine_line", 
     {

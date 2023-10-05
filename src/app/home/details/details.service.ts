@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { data } from './paticularDetails';
+
 import gsap from 'gsap';
-import { last } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,35 @@ export class DetailsService {
         opacity: 1
       })
       .delay(id + 1);
+
+      gsap.fromTo(item,
+        {
+          scale: 1,
+        },
+        {
+          scale: 1.2,
+          stagger: 0.2,
+          duration: 1,
+          ease: 'easeInOut', 
+          scrollTrigger: {
+            trigger: item,
+            start: '-100% 50%'
+          }
+        }
+      );  
+
+      gsap.to(item,
+        {
+          scale: 1,
+          stagger: 0.2,
+          duration: 1,
+          ease: 'easeInOut', 
+          scrollTrigger: {
+            trigger: item,
+            start: '-100% 70%'
+          }
+        }
+      );  
     });
     
   }
