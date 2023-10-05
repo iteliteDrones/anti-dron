@@ -44,8 +44,7 @@ export const data = {
         },
 
         charts: {
-            0: imagesPath + "home/content/charts/" + "chart_1_1",
-            1: imagesPath + "home/content/charts/" + "chart_1_2",
+            0: imagesPath + "home/content/charts/" + "chart_2_1",
             header: "PAT0413G5"
         }
     },
@@ -92,8 +91,8 @@ export const data = {
         },
 
         charts: {
-            0: imagesPath + "home/content/charts/" + "adas-2-1_1",
-            1: imagesPath + "home/content/charts/" + "adas-2-1_2",
+            0: imagesPath + "home/content/charts/" + "adas-4_1",
+            1: imagesPath + "home/content/charts/" + "adas-4_2",
             header: "PAT0413G5"
         }
     }

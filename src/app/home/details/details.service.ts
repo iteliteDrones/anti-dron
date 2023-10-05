@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { data } from './paticularDetails';
 import gsap from 'gsap';
+import { last } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,14 +24,19 @@ export class DetailsService {
       {
         x: 0,
         opacity: 1
-      }).delay(id + 1);
+      })
+      .delay(id + 1);
     });
     
   }
 
+  last;
+
   showProperties(this): void
   {
     const detailsService = this.detailsService;
+    if(detailsService.time) return;
+
     function show(): void
     {
       if(!detailsService.flag) return;
@@ -51,14 +57,14 @@ export class DetailsService {
     }
 
     detailsService.flag = true;
-
-    if(detailsService.time) clearTimeout(detailsService.time);
-    detailsService.time = setTimeout(show.bind(this), 1300);
+    detailsService.time = setTimeout(show.bind(this), 1250);
   };
 
   leaveFromButton(this)
   {
     this.detailsService.flag = false;
-    if(this.detailsService.time) clearTimeout(this.detailsService.time);
+    clearTimeout(this.detailsService.time);
+
+    this.detailsService.time = undefined;
   }
 }

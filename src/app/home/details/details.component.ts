@@ -5,6 +5,7 @@ import { imagesPath } from 'src/app/path';
 import { generalDetails, particularDetails } from '../detailsTypes';
 
 import { DetailsService } from './details.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -22,6 +23,8 @@ export class DetailsComponent implements AfterViewInit{
   protected imagesPath: string = imagesPath + "/home/content/content_";
   protected properties: particularDetails;
 
+  private subscriber_1: Subscription;
+
   @ViewChild("content")
   content: ElementRef;
 
@@ -29,11 +32,13 @@ export class DetailsComponent implements AfterViewInit{
   button: ElementRef;
 
   public ngAfterViewInit(): void {
-    fromEvent(this.button.nativeElement, "mousemove")
-    .subscribe(this.detailsService.showProperties.bind(this));
+    this.listeners();
 
     fromEvent(this.button.nativeElement, "mouseleave")
     .subscribe(this.detailsService.leaveFromButton.bind(this));
+
+    fromEvent(this.button.nativeElement, "mouseenter")
+    .subscribe(this.detailsService.showProperties.bind(this));
   }
 
   hideDetails(): void
@@ -43,6 +48,11 @@ export class DetailsComponent implements AfterViewInit{
 
     this.button.nativeElement.style.opacity = 1;
     this.changeDetRef.detectChanges();
+  }
+
+  listeners(): void
+  {
+    
   }
 
 }
