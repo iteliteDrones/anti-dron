@@ -27,34 +27,28 @@ export class DetailsService {
       })
       .delay(id + 1);
 
-      gsap.fromTo(item,
+      var animateIn = gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: "-100% center",
+          end: "100% center",
+          toggleActions: "play reverse none play",
+        }
+      });
+    
+      animateIn.fromTo(item, 
         {
-          scale: 1,
+          scale: 1
         },
         {
-          scale: 1.2,
-          stagger: 0.2,
-          duration: 1,
-          ease: 'easeInOut', 
-          scrollTrigger: {
-            trigger: item,
-            start: '-100% 50%'
-          }
+          scale: 1.2                             
         }
-      );  
-
-      gsap.to(item,
+      );
+    
+      animateIn.from(item, 
         {
-          scale: 1,
-          stagger: 0.2,
-          duration: 1,
-          ease: 'easeInOut', 
-          scrollTrigger: {
-            trigger: item,
-            start: '-100% 70%'
-          }
-        }
-      );  
+          scale: 1
+        }, -1);
     });
     
   }

@@ -6,7 +6,7 @@ export const data = {
         As the use of drones continues to grow, so does the need for effective countermeasures to safeguard sensitive areas and ensure public safety.​
         At ITELITE, we understand the critical importance of neutralizing potential threats posed by unauthorized drones.
         Our cost-effective and powerful ANTENNAS for anti-drone system utilizes sophisticated jamming technology, disrupting the electromagnetic signals used by these devices for data transmission and navigation.
-        Covering a wide spectrum from 433MHz up to 6GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
+        Covering a wide spectrum from 433MHz up to 7.2GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
 
         specification: `Using these 2 antennas, you can build a system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 5.9GHz (PAT2450G10).
         Each antenna is vertically polarized.
@@ -30,15 +30,16 @@ export const data = {
         As the use of drones continues to grow, so does the need for effective countermeasures to safeguard sensitive areas and ensure public safety.​
         At ITELITE, we understand the critical importance of neutralizing potential threats posed by unauthorized drones.
         Our cost-effective and powerful ANTENNAS for anti-drone system utilizes sophisticated jamming technology, disrupting the electromagnetic signals used by these devices for data transmission and navigation.
-        Covering a wide spectrum from 433MHz up to 6GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
+        Covering a wide spectrum from 433MHz up to 7.2GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
 
         specification: `Using these 2 antennas, you can build a system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 5.9GHz (PAT2450G10).
         Each antenna is vertically polarized.
         The PAT0413G5 gain is in the range of 3.4 – 8.7dBi. On the other hand, the PAT2450G10 gain is 9-10 dBi.`,
 
         mechanical_properties: {
-            size: 23,
-            weight: 0.2,
+            length: 112.3,
+            width: 85,
+            weight: 17,
             color: "Blue",
             material: "Plastic"
         },
@@ -53,7 +54,7 @@ export const data = {
         As the use of drones continues to grow, so does the need for effective countermeasures to safeguard sensitive areas and ensure public safety.​
         At ITELITE, we understand the critical importance of neutralizing potential threats posed by unauthorized drones.
         Our cost-effective and powerful ANTENNAS for anti-drone system utilizes sophisticated jamming technology, disrupting the electromagnetic signals used by these devices for data transmission and navigation.
-        Covering a wide spectrum from 433MHz up to 6GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
+        Covering a wide spectrum from 433MHz up to 7.2GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
 
         specification: `Using these 2 antennas, you can build a system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 5.9GHz (PAT2450G10).
         Each antenna is vertically polarized.
@@ -77,15 +78,16 @@ export const data = {
         As the use of drones continues to grow, so does the need for effective countermeasures to safeguard sensitive areas and ensure public safety.​
         At ITELITE, we understand the critical importance of neutralizing potential threats posed by unauthorized drones.
         Our cost-effective and powerful ANTENNAS for anti-drone system utilizes sophisticated jamming technology, disrupting the electromagnetic signals used by these devices for data transmission and navigation.
-        Covering a wide spectrum from 433MHz up to 6GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
+        Covering a wide spectrum from 433MHz up to 7.2GHz frequency bands, our solution ensures comprehensive protection against a range of UAVs.`,
 
         specification: `Using these 2 antennas, you can build a system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 5.9GHz (PAT2450G10).
         Each antenna is vertically polarized.
         The PAT0413G5 gain is in the range of 3.4 – 8.7dBi. On the other hand, the PAT2450G10 gain is 9-10 dBi.`,
 
         mechanical_properties: {
-            size: 23,
-            weight: 0.2,
+            length: 72,
+            width: 29,
+            weight: 3.75,
             color: "Blue",
             material: "Plastic"
         },

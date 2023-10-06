@@ -19,7 +19,7 @@ export class HomeService {
     gsap.to(".machine_line", 
     {
       text: {value: `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
-      An effective anti-drone solution should cover the spectrum between 433MHz up to 6GHz frequency bands.
+      An effective anti-drone solution should cover the spectrum between 433MHz up to 7.2GHz frequency bands.
       ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`},
       duration: 14,
       delay: 1,

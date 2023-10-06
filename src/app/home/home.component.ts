@@ -33,7 +33,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       header: "ADAS 1.1 D",
-      paragraph: `This is a compact microstrip directive LPD antenna covering from 400MHz up to 6GHz.
+      paragraph: `This is a compact microstrip directive LPD antenna covering from 400MHz up to 7.2GHz.
                   The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.
                   The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
                   The antenna is made up using 2 sub-antennas combined with a diplexer, providing a smooth and uniform response.`,
@@ -41,7 +41,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       header: "ADAS 2.1 D",
-      paragraph: `This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 6GHz with a gain of up to 12 dBi.
+      paragraph: `This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 7.2GHz with a gain of up to 12 dBi.
                   The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
       img_num: "4_2"
     }

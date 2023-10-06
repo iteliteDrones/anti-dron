@@ -9,7 +9,8 @@ export interface particularDetails {
     specification: string,
 
     mechanical_properties: {
-        size: number,
+        length: number,
+        width: number,
         weight: number,
         color: string,
         material: string
