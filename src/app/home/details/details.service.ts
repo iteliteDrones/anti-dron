@@ -26,29 +26,6 @@ export class DetailsService {
         opacity: 1
       })
       .delay(id + 1);
-
-      var animateIn = gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "-100% center",
-          end: "100% center",
-          toggleActions: "play reverse none play",
-        }
-      });
-    
-      animateIn.fromTo(item, 
-        {
-          scale: 1
-        },
-        {
-          scale: 1.2                             
-        }
-      );
-    
-      animateIn.from(item, 
-        {
-          scale: 1
-        }, -1);
     });
     
   }
