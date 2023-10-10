@@ -20,10 +20,8 @@ export class DetailsComponent implements AfterViewInit{
   @Input() details: {value: generalDetails, id: number} | null = null;
   @Output() refreshDetailsComponentSize: boolean;
   
-  protected imagesPath: string = imagesPath + "/home/content/content_";
+  protected imagesPath: string = imagesPath + "home/content/content_";
   protected properties: particularDetails;
-
-  private subscriber_1: Subscription;
 
   @ViewChild("content")
   content: ElementRef;
@@ -32,7 +30,6 @@ export class DetailsComponent implements AfterViewInit{
   button: ElementRef;
 
   public ngAfterViewInit(): void {
-    this.listeners();
 
     fromEvent(this.button.nativeElement, "mouseleave")
     .subscribe(this.detailsService.leaveFromButton.bind(this));
@@ -48,11 +45,6 @@ export class DetailsComponent implements AfterViewInit{
 
     this.button.nativeElement.style.opacity = 1;
     this.changeDetRef.detectChanges();
-  }
-
-  listeners(): void
-  {
-    
   }
 
 }
