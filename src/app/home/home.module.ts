@@ -7,6 +7,8 @@ import { DetailsComponent } from './details/details.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxResizeObserverModule } from 'ngx-resize-observer';
 
+import { HomeService } from './home.service';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -15,8 +17,9 @@ import { NgxResizeObserverModule } from 'ngx-resize-observer';
   imports: [
     CommonModule,
     MatIconModule,
-    NgxResizeObserverModule
+    NgxResizeObserverModule,
   ],
-  exports: [HomeComponent]
+  exports: [HomeComponent],
+  providers: [HomeService]
 })
 export class HomeModule { }

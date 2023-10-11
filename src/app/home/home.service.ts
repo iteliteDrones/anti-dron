@@ -3,6 +3,7 @@ import gsap from "gsap";
 
 import { TextPlugin } from 'gsap/src/all';
 import { ScrollTrigger } from 'gsap/all';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ import { ScrollTrigger } from 'gsap/all';
 export class HomeService {
 
   private topProperties;
+
+  constructor(private httpClient: HttpClient){}
 
   public init(writeLine, elements): void
   {

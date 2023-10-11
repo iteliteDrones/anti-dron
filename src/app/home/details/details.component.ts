@@ -5,7 +5,6 @@ import { imagesPath } from 'src/app/path';
 import { generalDetails, particularDetails } from '../detailsTypes';
 
 import { DetailsService } from './details.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-details',

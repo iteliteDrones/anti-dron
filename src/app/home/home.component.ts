@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { generalDetails } from './detailsTypes';
 
 import { HomeService } from './home.service';
-import { DetailsService } from './details/details.service';
+import { CacheService } from 'ng2-cache';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { DetailsService } from './details/details.service';
 })
 export class HomeComponent implements AfterViewInit {
 
-  constructor(public homeService: HomeService, private detailsService: DetailsService){}
+  constructor(public homeService: HomeService, private _cacheService: CacheService){}
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName("container-fluid");
 
@@ -53,10 +53,32 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild("write_line")
   writeLine: ElementRef;
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
 
     this.homeService.init(this.writeLine, this.elements);
+    const images = document.querySelectorAll(".content>.image>img");
+
+    async function getBlobOfImages(): Promise<Blob[]>
+    {
+      const blobForm: Blob[] = [];
+
+      return new Promise((resolve) => {
+        images.forEach((img: HTMLImageElement) => {
+          fetch(img.src)
+          .then((res) => {
+            res.blob().then((blob) => {
+
+              if(blobForm.length == 4) resolve(blobForm);
+            });
+          });
+        });
+      });
+    }
+
+    const blobImages = await getBlobOfImages();
     
+
+    console.log(blobImages)
   }
 
   handleResize(event)

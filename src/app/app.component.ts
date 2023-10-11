@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MouseService } from './mouse/mouse.service';
-import { Router } from '@angular/router';
+
+import { CacheService } from 'ng2-cache';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit{
 
-  constructor(private mouseService: MouseService, private router: Router){}
+  constructor(private mouseService: MouseService, private _cacheService: CacheService){
+    this._cacheService.set('key', ['some data']);
+  }
 
   title: string = 'anti-drone';
 
@@ -20,9 +23,8 @@ export class AppComponent implements OnInit{
   @ViewChild("bar_menu")
   barMenu: ElementRef | undefined;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.mouseService.setMouseStyle();
   }
-
 
 }

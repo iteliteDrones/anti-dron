@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { MatIconModule} from '@angular/material/icon';
 import { HomeModule } from './home/home.module';
 
+import { Ng2CacheModule } from 'ng2-cache';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { HomeModule } from './home/home.module';
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HomeModule
+    HomeModule,
+    Ng2CacheModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
