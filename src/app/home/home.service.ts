@@ -48,6 +48,8 @@ export class HomeService {
     )
     .delay(.5);
 
+    this.scrollEvent();
+    
     if(this.deviceService.isMobile() || this.deviceService.isTablet()) return;
 
     Array.from(elements)
@@ -72,7 +74,6 @@ export class HomeService {
     })
 
     this.setSizes(elements);
-    this.scrollEvent();
   }
 
   public setSizes(elements)
