@@ -3,7 +3,8 @@ import gsap from "gsap";
 
 import { TextPlugin } from 'gsap/src/all';
 import { ScrollTrigger } from 'gsap/all';
-import { HttpClient } from '@angular/common/http';
+
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HomeService {
 
   private topProperties;
 
-  constructor(private httpClient: HttpClient){}
+  constructor(private deviceService: DeviceDetectorService){}
 
   public init(writeLine, elements): void
   {
@@ -46,6 +47,8 @@ export class HomeService {
       }
     )
     .delay(.5);
+
+    if(this.deviceService.isMobile() || this.deviceService.isTablet()) return;
 
     Array.from(elements)
     .forEach((e: HTMLElement) => {

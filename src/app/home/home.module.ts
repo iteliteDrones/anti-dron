@@ -17,7 +17,7 @@ import { HomeService } from './home.service';
   imports: [
     CommonModule,
     MatIconModule,
-    NgxResizeObserverModule,
+    NgxResizeObserverModule
   ],
   exports: [HomeComponent],
   providers: [HomeService]

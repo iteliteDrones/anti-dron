@@ -24,6 +24,7 @@
     "gsap": "^3.12.2",
     "material-icons": "^1.13.11",
     "ng2-cache": "^0.2.1",
+    "ngx-device-detector": "^6.0.2",
     "ngx-resize-observer": "^2.5.2",
     "ngx-socket-io": "^4.5.1",
     "rxjs": "~7.5.0",
