@@ -65,6 +65,20 @@ $background: rgba(246, 248, 251, 1);
     }
 }
 
+@media(max-width: 600px)
+{
+    .container{
+        .news{
+            h3{
+                font-size: 230px;
+                width: 90vw;
+                white-space: nowrap;
+                left: 35%;
+            }
+        }
+    }
+}
+
 @keyframes gleam {
     0%{
         opacity: 1;
