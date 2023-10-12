@@ -56,53 +56,6 @@ export class HomeComponent implements AfterViewInit {
   async ngAfterViewInit(): Promise<void> {
 
     this.homeService.init(this.writeLine, this.elements);
-    const images = document.querySelectorAll(".content>.image>img");
-
-    async function getBlobOfImages(): Promise<Blob[]>
-    {
-      const blobForm: Blob[] = [];
-
-      function blobToUint8Array(b) {
-        var uri = URL.createObjectURL(b),
-            xhr = new XMLHttpRequest(),
-            i,
-            ui8;
-        
-        xhr.open('GET', uri, false);
-        xhr.send();
-        
-        URL.revokeObjectURL(uri);
-        
-        ui8 = new Uint8Array(xhr.response.length);
-        
-        for (i = 0; i < xhr.response.length; ++i) {
-            ui8[i] = xhr.response.charCodeAt(i);
-        }
-        
-        return ui8;
-      }
-
-      return new Promise((resolve) => {
-        images.forEach((img: HTMLImageElement) => {
-          fetch(img.src)
-          .then((res) => {
-
-            res.blob()
-            .then((blob) => {
-
-              blobForm.push(blob);
-              if(blobForm.length == 4) resolve(blobForm);
-            });
-
-          });
-        });
-      });
-    }
-
-    const blobImages = await getBlobOfImages();
-
-    this._cacheService.set("images", blobImages);
-
   }
 
   handleResize(event)
