@@ -280,11 +280,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     }
 
     .background_header{
-        font-size: 195px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 90vw;
-        text-align: right;
+        display: none;
     }
 
     .content {
