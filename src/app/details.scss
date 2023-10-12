@@ -279,6 +279,14 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
         width: 200px;
     }
 
+    .background_header{
+        font-size: 195px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 90vw;
+        text-align: right;
+    }
+
     .content {
         width: 100% !important;
         gap: 0px !important;
