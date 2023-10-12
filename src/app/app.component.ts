@@ -11,9 +11,7 @@ import { CacheService } from 'ng2-cache';
 
 export class AppComponent implements OnInit{
 
-  constructor(private mouseService: MouseService, private _cacheService: CacheService){
-    this._cacheService.set('key', ['some data']);
-  }
+  constructor(private mouseService: MouseService, private _cacheService: CacheService){}
 
   title: string = 'anti-drone';
 
