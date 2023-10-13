@@ -19,8 +19,6 @@
   <div class="content">
       <div #detailsContainer *ngIf="detailsChild" class="particular_details">
     
-        <div class="block">
-          <div class="text">
             <div  class="properties description">
               <h4>Description</h4>
               <p>{{detailsChild.description}}</p>
@@ -30,11 +28,6 @@
               <h4>Specification</h4>
               <p>{{detailsChild.specification}}</p>
             </div>
-          </div>
-          <div class="image">
-            <img src="./assets/images/home/content/content_{{detailsChild.id}}" alt="Antenna image">
-          </div>
-        </div>
           
           
       
