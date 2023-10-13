@@ -43,7 +43,7 @@ export class HomeComponent implements AfterViewInit {
       header: "ADAS 2.1 D",
       paragraph: `This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 7.2GHz with a gain of up to 12 dBi.
                   The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
-      img_num: "4_2"
+      img_num: "4"
     }
   ];
 
