@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Input } from "@angular/core";
 
 import { gsap } from 'gsap/gsap-core';
@@ -6,7 +6,8 @@ import { gsap } from 'gsap/gsap-core';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['../../details.scss']
+  styleUrls: ['../../details.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements AfterViewInit{
   
@@ -23,11 +24,16 @@ export class DetailsComponent implements AfterViewInit{
     .forEach((e, id) => {
       gsap.fromTo(e, {opacity: 0}, {opacity: 1}).delay(id + 1)
     });
-
   }
 
   hideDetails(): void
   {
     this.toParent.emit(null);
   }
+
+  protected isNumber(width): boolean
+  {
+    return typeof width == "number";
+  }
+
 }

@@ -1,5 +1,6 @@
 
-<app-details *ngIf="detailsParent" [detailsChild]="detailsParent" (toParent)="hideDetails()"></app-details>
+<app-details *ngIf="detailsParent" [detailsChild]="detailsParent" (toParent)="hideDetails()">
+</app-details>
 
 <div #products class="products d-flex flex-wrap justify-content-center">
     <div class="product">
@@ -20,7 +21,7 @@
     <div class="product">
         <div data-id="3" class="cover"></div>
         <h3>ADAS 2.1 D</h3>
-        <img src="{{domesticPath}}/content_4_2.webp" alt="">
+        <img src="{{domesticPath}}/content_4.webp" alt="">
     </div>
 
     <button (click)="navigate()">Ask for availability</button>

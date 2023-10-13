@@ -34,22 +34,34 @@
     </div>
 
     <div  class="properties mechanical_properties">
+      
       <h4>Mechanical Properties</h4>
+
       <div>
         Length: {{properties.mechanical_properties.length}}cm
       </div>
-      <div>
+
+      <div *ngIf="isNumber(properties.mechanical_properties.width); else arr">
         Width: {{properties.mechanical_properties.width}}cm
       </div>
+      <ng-template #arr>
+        <div>Width_1: {{properties.mechanical_properties.width[0]}}cm</div>
+        <div>Width_2: {{properties.mechanical_properties.width[1]}}cm</div>
+
+      </ng-template>
+      
       <div>
         Weight: {{properties.mechanical_properties.weight}}kg
       </div>
+
       <div>
         Color: {{properties.mechanical_properties.color}}
       </div>
+
       <div>
         Material: {{properties.mechanical_properties.material}}
       </div>
+
     </div>
 
     <div  class="properties charts">

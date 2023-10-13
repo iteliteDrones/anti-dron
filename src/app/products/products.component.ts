@@ -31,8 +31,13 @@ export class ProductsComponent implements AfterViewInit{
     function showProductDetails(e: Event | any)
     {
       if(!e.target['classList'].contains("cover")) return;
-      this.detailsParent = data[`${e.target.getAttribute("data-id")}`];
-    };
+      const id = e.target.getAttribute("data-id");
+
+      const newData = Object.assign({}, data[`${id}`]);
+      newData.id = id;
+
+      this.detailsParent = newData;
+    }
 
     this.productsElement.nativeElement
     .addEventListener("click", showProductDetails.bind(this));

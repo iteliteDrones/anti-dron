@@ -45,5 +45,9 @@ export class DetailsComponent implements AfterViewInit{
     this.button.nativeElement.style.opacity = 1;
     this.changeDetRef.detectChanges();
   }
-
+  
+  protected isNumber(width): boolean
+  {
+    return typeof width == "number";
+  }
 }

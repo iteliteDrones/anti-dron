@@ -19,6 +19,9 @@ $anti-drone-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $anti-drone-warn: mat.define-palette(mat.$red-palette);
 $background: rgba(246, 248, 251, 1);
 
+$nav-padding: 43.5px;
+$nav-list-margin-top: calc(70px - 43.5px);
+
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $anti-drone-theme: mat.define-light-theme((
@@ -44,6 +47,79 @@ $anti-drone-theme: mat.define-light-theme((
 
 html, body { height: 100%; overflow-x: hidden;}
 body { font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $background;}
+
+nav{
+
+  background: $background;
+  background: linear-gradient(0deg, transparent 13%, $background 18%);
+  padding-top: $nav-padding;
+
+  padding-right: 10%;
+  flex-wrap: nowrap;
+
+  position: relative;
+
+  .logo{
+      margin-left: 103px;
+  }
+
+  div{
+      display: flex;
+      height: fit-content;
+
+      margin-top: $nav-list-margin-top;
+
+      ul{
+          display: flex;
+          list-style-type: none;
+          width: fit-content;
+          height: 18px;
+          flex-shrink: 0;
+          line-height: 18px;
+          gap: 60px;
+          margin-bottom: 0;
+          margin-top: 6px;
+          padding-left: 0;
+  
+          li{
+              color: #000;
+              font-family: 'Akshar', sans-serif;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: normal;
+              position: relative;
+              z-index: 12;
+          }
+      }
+
+      .line{
+          margin-left: 44px;
+          margin-right: 42px;
+          height: 18px;
+          margin-top: 6px;
+          width: 2px;
+      }
+
+      .sign{
+          margin-left: 41px;
+      }
+  }
+
+  .menu{
+      display: none;
+      color: rgb(248, 190, 57);
+
+      width: 32px;
+      height: 32px;
+
+      mat-icon{
+          width: 32px;
+          height: 32px;
+
+          font-size: 30px;
+      }
+  }
+}
 
 .container-fluid{
   min-height: 100vh;

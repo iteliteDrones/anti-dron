@@ -13,9 +13,10 @@ export const data = {
         The PAT0413G5 gain is in the range of 3.4 – 8.7dBi. On the other hand, the PAT2450G10 gain is 9-10 dBi.`,
 
         mechanical_properties: {
-            size: 23,
+            length: 40.5,
+            width: 53,
             weight: 0.2,
-            color: "Blue",
+            color: "white or green",
             material: "Plastic"
         },
 
@@ -40,7 +41,7 @@ export const data = {
             length: 112.3,
             width: 85,
             weight: 17,
-            color: "Blue",
+            color: "white or green",
             material: "Plastic"
         },
 
@@ -61,9 +62,10 @@ export const data = {
         The PAT0413G5 gain is in the range of 3.4 – 8.7dBi. On the other hand, the PAT2450G10 gain is 9-10 dBi.`,
 
         mechanical_properties: {
-            size: 23,
+            length: 63.2,
+            width: [41.5, 34.7],
             weight: 0.2,
-            color: "Blue",
+            color: "white or green",
             material: "Plastic"
         },
 
@@ -88,7 +90,7 @@ export const data = {
             length: 72,
             width: 29,
             weight: 3.75,
-            color: "Blue",
+            color: "white or green",
             material: "Plastic"
         },
 
