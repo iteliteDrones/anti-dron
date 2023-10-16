@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
+import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
+
 import gsap from "gsap";
-
-import { TextPlugin } from 'gsap/src/all';
-import { ScrollTrigger } from 'gsap/all';
-
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Injectable({

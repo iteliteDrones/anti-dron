@@ -3,6 +3,7 @@ import { imagesPath } from '../path';
 
 import { Router } from '@angular/router';
 import { data } from '../home/details/paticularDetails';
+
 import { particularDetails } from '../home/detailsTypes';
 
 @Component({
