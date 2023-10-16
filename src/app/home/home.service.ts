@@ -67,7 +67,7 @@ export class HomeService {
           ease: 'easeInOut', 
           scrollTrigger: {
             trigger: e,
-            start: '-20% 20%',
+            start: '-40% 20%',
           }
         }
       );  

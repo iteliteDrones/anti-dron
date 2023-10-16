@@ -34,7 +34,7 @@ export class ProductsComponent implements AfterViewInit{
       const id = e.target.getAttribute("data-id");
 
       const newData = Object.assign({}, data[`${id}`]);
-      newData.id = id;
+      newData.id = Number(id) + 1;
 
       this.detailsParent = newData;
     }
