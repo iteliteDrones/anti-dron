@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MouseService } from './mouse/mouse.service';
 
-import { CacheService } from 'ng2-cache';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +9,7 @@ import { CacheService } from 'ng2-cache';
 
 export class AppComponent implements OnInit{
 
-  constructor(private mouseService: MouseService, private _cacheService: CacheService){}
+  constructor(private mouseService: MouseService){}
 
   title: string = 'anti-drone';
 

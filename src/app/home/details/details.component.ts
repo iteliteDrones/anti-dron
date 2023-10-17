@@ -16,7 +16,13 @@ export class DetailsComponent implements AfterViewInit{
 
   constructor(private changeDetRef: ChangeDetectorRef, private detailsService: DetailsService){}
 
+  protected img;
+
   @Input() details: {value: generalDetails, id: number} | null = null;
+  @Input() set images (img) {
+    this.img = img;
+  };
+
   @Output() refreshDetailsComponentSize: boolean;
   
   protected imagesPath: string = imagesPath + "home/content/content_";

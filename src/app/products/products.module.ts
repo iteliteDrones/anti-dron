@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { MatIconModule } from '@angular/material/icon';
 
+import { NgOptimizedImage } from '@angular/common'
+
 const routes: Routes = [
   {
     path: '',
@@ -22,7 +24,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MatIconModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgOptimizedImage
   ]
 })
 export class ProductsModule { }

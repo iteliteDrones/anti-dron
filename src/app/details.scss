@@ -122,6 +122,8 @@ $content_text_margin_top: 30px;
 
             .antenna_image{
                 width: 630px;
+                margin: auto;
+                
                 img{
                     width: 950px;
                     transform: translate(-10%);
@@ -253,7 +255,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     .content:nth-of-type(#{nth($container_number, $i)}) .image {
         $list: nth($img_sizes, $i);
 
-        @for $x from 1 through length($list) / 2 {
+        @for $x from 1 through calc(length($list) / 2) {
             img:nth-of-type(#{$x}) {
                 width: nth($list, 2 * $x - 1);
                 height: nth($list, 2 * $x);
@@ -279,6 +281,11 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
             margin-left: unset;
             margin: auto;
         }
+
+        .nav-list, .nav-list ul{
+            width: 100%;
+            justify-content: space-around;
+        }
     }
 
     .background_header {
@@ -290,9 +297,10 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     .content {
 
         mat-icon{
+            position: absolute;
             transform: translate(50%, 0);
             right: 50% !important;
-            bottom: -3% !important;
+            bottom: 3% !important;
         }
     }
 

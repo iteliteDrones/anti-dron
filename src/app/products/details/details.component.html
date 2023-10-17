@@ -1,5 +1,5 @@
 <nav class="nav flex justify-content-between">
-  <img class="logo" routerLink="/" src="./assets/images/logo.png" alt="logo">
+  <img class="logo" routerLink="/" ngSrc="./assets/images/logo.png" alt="logo" width="auto" height="auto" priority>
 
   <div #nav_list class="nav-list">
     <ul>
@@ -25,18 +25,18 @@
                 <p>{{detailsChild.description}}</p>
               </div>
               
-              <div  class="properties specification">
+              <div class="properties specification">
                 <h4>Specification</h4>
                 <p>{{detailsChild.specification}}</p>
               </div>
             </div>
             
             <div class="antenna_image">
-              <img src="./assets/images/home/content/content_{{detailsChild.id}}.webp" alt="">
+              <img ngSrc="./assets/images/home/content/content_{{detailsChild.id}}.webp" width="auto" height="auto" alt="Antenna image" priority>
             </div>
           </div>
       
-          <div  class="properties mechanical_properties">
+          <div class="properties mechanical_properties">
             <h4>Mechanical Properties</h4>
 
             <div>
@@ -69,12 +69,12 @@
       
             <div>
               <h4>{{detailsChild.charts.header}}</h4>
-              <img src="{{detailsChild.charts[0]}}.jpg" alt="">
+              <img ngSrc="{{detailsChild.charts[0]}}.jpg" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
       
             <div *ngIf="detailsChild.charts[1]">
               <h4>{{detailsChild.charts.header}}</h4>
-              <img src="{{detailsChild.charts[1]}}.jpg" alt="">
+              <img ngSrc="{{detailsChild.charts[1]}}.jpg" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
             
           </div>

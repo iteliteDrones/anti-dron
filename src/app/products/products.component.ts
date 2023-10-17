@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { imagesPath } from '../path';
 
 import { Router } from '@angular/router';
@@ -9,60 +9,47 @@ import { particularDetails } from '../home/detailsTypes';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
-export class ProductsComponent implements AfterViewInit{
+export class ProductsComponent {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router){}
-
-  domesticPath = imagesPath + "home/content"
+  domesticPath = imagesPath + 'home/content';
   detailsParent: particularDetails;
 
-  navigate()
-  {
-    this.router.navigate(["/contact"]);
+  hoverElement: HTMLElement | any;
+
+  navigate() {
+    this.router.navigate(['/contact']);
   }
 
-  @ViewChild("products")
+  @ViewChild('products')
   productsElement: ElementRef;
 
-  ngAfterViewInit(): void {
-    let hoverElement: HTMLElement | any;
+  showProductDetails(e: Event | any) {
+    if (!e.target['classList'].contains('cover')) return;
+    const id = e.target.getAttribute('data-id');
 
-    function showProductDetails(e: Event | any)
-    {
-      if(!e.target['classList'].contains("cover")) return;
-      const id = e.target.getAttribute("data-id");
+    const newData = Object.assign({}, data[`${id}`]);
+    newData.id = Number(id) + 1;
 
-      const newData = Object.assign({}, data[`${id}`]);
-      newData.id = Number(id) + 1;
-
-      this.detailsParent = newData;
-    }
-
-    this.productsElement.nativeElement
-    .addEventListener("click", showProductDetails.bind(this));
-
-    // css animation
-    function moveElement(e: Event)
-    {
-      if(!e.target['classList'].contains("cover")){
-        if(hoverElement) hoverElement.classList.remove("raise");
-        return;
-      };
-
-      if(hoverElement) hoverElement.classList.remove("raise");
-
-      e.target['parentElement'].classList.add("raise");
-      hoverElement = e.target['parentElement'];
-    };
-
-    this.productsElement.nativeElement
-    .addEventListener("mousemove", moveElement)
+    this.detailsParent = newData;
   }
 
-  hideDetails()
-  {
+  // css animation
+  moveElement(e: Event) {
+    if (!e.target['classList'].contains('cover')) {
+      if (this.hoverElement) this.hoverElement.classList.remove('raise');
+      return;
+    }
+
+    if (this.hoverElement) this.hoverElement.classList.remove('raise');
+
+    e.target['parentElement'].classList.add('raise');
+    this.hoverElement = e.target['parentElement'];
+  }
+
+  hideDetails() {
     this.detailsParent = null;
   }
 }

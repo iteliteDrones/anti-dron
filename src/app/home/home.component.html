@@ -11,7 +11,7 @@
   </section>
   
   <div (onResize)="handleResize($event)" *ngFor="let e of details; let i = index" class="container-fluid">
-    <app-details [details]="{value: e, id: i}"></app-details>
+    <app-details [details]="{value: e, id: i}" [images]="images[i]"></app-details>
   </div>
 
   <div id="counter">
