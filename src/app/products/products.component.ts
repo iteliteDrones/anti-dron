@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+
+import {  Component } from '@angular/core';
 import { imagesPath } from '../path';
 
 import { Router } from '@angular/router';
@@ -12,23 +13,21 @@ import { particularDetails } from '../home/detailsTypes';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-  constructor(private router: Router) {}
 
-  domesticPath = imagesPath + 'home/content';
+  constructor(private router: Router) { }
+
+  domesticPath = imagesPath + "home/content"
   detailsParent: particularDetails;
 
-  hoverElement: HTMLElement | any;
-
   navigate() {
-    this.router.navigate(['/contact']);
+    this.router.navigate(["/contact"]);
   }
 
-  @ViewChild('products')
-  productsElement: ElementRef;
+  hoverElement: HTMLElement;
 
   showProductDetails(e: Event | any) {
-    if (!e.target['classList'].contains('cover')) return;
-    const id = e.target.getAttribute('data-id');
+    if (!e.target['classList'].contains("cover")) return;
+    const id = e.target.getAttribute("data-id");
 
     const newData = Object.assign({}, data[`${id}`]);
     newData.id = Number(id) + 1;
