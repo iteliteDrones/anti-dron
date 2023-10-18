@@ -56,4 +56,9 @@ export class DetailsComponent implements AfterViewInit{
   {
     return typeof width == "number";
   }
+
+  isString(data): boolean
+  {
+    return typeof data == "string";
+  }
 }

@@ -50,7 +50,7 @@ export class DetailsService {
 
       detailsService.flag = false;
       this.properties = data[this.details.id];
-      
+
       this.changeDetRef.detectChanges();
       detailsService.gsapDetails(this.content.nativeElement);
     }

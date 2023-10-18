@@ -30,7 +30,49 @@
 
     <div  class="properties specification">
       <h4>Specification</h4>
-      <p>{{properties.specification}}</p>
+      <ul>
+        <li *ngIf="isString(properties.specification['Frequency range']); else frequency_arr">Frequency range: {{ properties.specification["Frequency range"] }}</li>
+        <ng-template #frequency_arr>
+          <p>Frequency range:</p>
+          <ul>
+            <li>{{properties.specification['Frequency range'][0]['P1']}}</li>
+            <li>{{properties.specification['Frequency range'][0]['P2']}}</li>
+          </ul>
+        </ng-template>
+
+        <li *ngIf="isString(properties.specification['Gain']); else gain_arr">Gain: {{ properties.specification["Gain"] }}</li>
+        <ng-template #gain_arr>
+          <p>Gain:</p>
+          <ul>
+            <li>{{properties.specification['Gain'][0]['P1']}}</li>
+            <li>{{properties.specification['Gain'][0]['P2']}}</li>
+          </ul>
+        </ng-template>
+
+        <li *ngIf="isString(properties.specification['Beamwidth Azimuth']); else azimuth_arr">Beamwidth Azimuth: {{ properties.specification["Beamwidth Azimuth"] }}</li>
+        <ng-template #azimuth_arr>
+          <p>Beamwidth Azimuth:</p>
+          <ul>
+            <li>{{properties.specification['Beamwidth Azimuth'][0]['P1']}}</li>
+            <li>{{properties.specification['Beamwidth Azimuth'][0]['P2']}}</li>
+          </ul>
+        </ng-template>
+
+        <li *ngIf="isString(properties.specification['Beamwidth Elevation']); else elevation_arr">Beamwidth Elevation: {{ properties.specification["Beamwidth Elevation"] }}</li>
+        <ng-template #elevation_arr>
+          <p>Beamwidth Elevation:</p>
+          <ul>
+            <li>{{properties.specification['Beamwidth Elevation'][0]['P1']}}</li>
+            <li>{{properties.specification['Beamwidth Elevation'][0]['P2']}}</li>
+          </ul>
+        </ng-template>
+
+        <li>VSWR: {{ properties.specification["VSWR"] }}</li>
+        <li>Impedance: {{ properties.specification["Impedance"] }}</li>
+
+        <li>XPD (cross polarization discrimination): {{ properties.specification["XPD (cross polarization discrimination)"] }}</li>
+        <li>RF Interface: {{ properties.specification["RF Interface"] }}</li>
+      </ul>
     </div>
 
     <div  class="properties mechanical_properties">
@@ -68,12 +110,12 @@
 
       <div>
         <h4>{{properties.charts.header}}</h4>
-        <img src="{{properties.charts[0]}}.jpg" alt="">
+        <img src="{{properties.charts[0]}}.webp" alt="">
       </div>
 
       <div *ngIf="properties.charts[1]">
         <h4>{{properties.charts.header}}</h4>
-        <img src="{{properties.charts[1]}}.jpg" alt="">
+        <img src="{{properties.charts[1]}}.webp" alt="">
       </div>
       
     </div>
