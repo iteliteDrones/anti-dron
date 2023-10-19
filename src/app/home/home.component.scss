@@ -6,17 +6,14 @@ $content_text_margin_top: 30px;
         margin-top: 60px;
     }
 
-    $list: 750 510, 695 455, 400 590, 330 530;
+    $list: 715, 680, 625, 550;
 
     @for $i from 1 through 4{
 
-        :host ::ng-deep app-details:nth-of-type(#{$i}) .content .image img{
-            height: calc( nth( nth($list, $i), 1) * 1px);
-            width: calc( nth( nth($list, $i), 2) * 1px);
+        :host .container-fluid:nth-of-type(#{$i}) ::ng-deep app-details .content .image img{
+            width: calc(nth($list, $i) * 1px);
         }
     }
-
-    
 
     section{
         position: relative;

@@ -9,7 +9,6 @@ import { generalDetails } from './detailsTypes';
 
 import { HomeService } from './home.service';
 import { CacheService } from 'ng2-cache';
-import { Binary } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',

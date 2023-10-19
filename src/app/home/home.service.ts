@@ -9,8 +9,9 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class HomeService {
 
-  private topProperties;
+  
   constructor(private deviceService: DeviceDetectorService){}
+  private topProperties = [];
 
   public init(writeLine, elements): void
   {
@@ -114,7 +115,7 @@ export class HomeService {
       
       this.topProperties.every((value, id: number) => {
         
-        if(window.innerWidth > 1000? eval(condition(2.2)): eval(condition(2))) return scrollAnim(id);
+        if(window.innerWidth > 1000? eval(condition(2.2)): eval(condition(2)) ) return scrollAnim(id);
         return true;
       });
 

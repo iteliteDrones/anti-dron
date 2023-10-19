@@ -41,6 +41,7 @@ export class DetailsComponent implements AfterViewInit{
 
     fromEvent(this.button.nativeElement, "mouseenter")
     .subscribe(this.detailsService.showProperties.bind(this));
+
   }
 
   hideDetails(): void
