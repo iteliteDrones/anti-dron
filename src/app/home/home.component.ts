@@ -9,6 +9,7 @@ import { generalDetails } from './detailsTypes';
 
 import { HomeService } from './home.service';
 import { CacheService } from 'ng2-cache';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ import { CacheService } from 'ng2-cache';
 export class HomeComponent implements AfterViewInit, OnInit {
   constructor(
     public homeService: HomeService,
-    private cacheService: CacheService
+    private cacheService: CacheService,
+    private deviceDet: DeviceDetectorService
   ) {}
 
   private elements: HTMLCollectionOf<Element> =
@@ -65,6 +67,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     const images = [], 
           result = this.cacheService.get('images'),
+          isMobile = this.deviceDet.isMobile()? "/mobile": "",
           that = this;
 
           let id: number = 0;
@@ -77,7 +80,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
     {
       return new Promise((resolve) => {
         fetch(
-          '/assets/images/home/content/content_' + Number(id + 1) + '.webp'
+          '/assets/images/home/content'+isMobile+'/content_' + Number(id + 1) + '.webp'
         )
         .then((img) => {
           img.blob().then((blob: Blob | any) => {
@@ -105,7 +108,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
       
       id++;
       if(id < that.details.length) loop();
-      
     }
 
     loop();

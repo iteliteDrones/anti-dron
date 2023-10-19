@@ -5,6 +5,7 @@ import { imagesPath } from 'src/app/path';
 import { generalDetails, particularDetails } from '../detailsTypes';
 
 import { DetailsService } from './details.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-details',
@@ -14,7 +15,7 @@ import { DetailsService } from './details.service';
 })
 export class DetailsComponent implements AfterViewInit{
 
-  constructor(private changeDetRef: ChangeDetectorRef, private detailsService: DetailsService){}
+  constructor(private changeDetRef: ChangeDetectorRef, private detailsService: DetailsService, private deviceDet: DeviceDetectorService){}
 
   protected img;
 
@@ -25,8 +26,13 @@ export class DetailsComponent implements AfterViewInit{
 
   @Output() refreshDetailsComponentSize: boolean;
   
-  protected imagesPath: string = imagesPath + "home/content/content_";
+  protected imagesPath: string = imagesPath + "home/content/"+ this.detectDevice() +"content_";
   protected properties: particularDetails;
+
+  private detectDevice(): string
+  {
+    return this.deviceDet.isMobile()? "mobile/": "";
+  }
 
   @ViewChild("content")
   content: ElementRef;
@@ -41,7 +47,6 @@ export class DetailsComponent implements AfterViewInit{
 
     fromEvent(this.button.nativeElement, "mouseenter")
     .subscribe(this.detailsService.showProperties.bind(this));
-
   }
 
   hideDetails(): void
