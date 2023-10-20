@@ -116,12 +116,11 @@ $content_text_margin_top: 30px;
             }
 
             .antenna_image{
-                width: 630px;
+                width: 520px;
                 margin: auto;
                 
                 img{
-                    width: 950px;
-                    transform: translate(-10%);
+                    transform: translate(17%);
                 }
             }
         }
@@ -323,8 +322,10 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
             .antenna_image{
                 width: 90vw !important;
                 img{
-                    width: 115vw !important;
-                    transform: translate(0);
+                    width: 95vw !important;
+                    transform: translate(1) !important;
+                    max-width: 450px;
+                    left: -17px;
                 }
             }
         }
@@ -340,6 +341,10 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
 }
 
 @media(max-width: 650px) {
+    .content .particular_details .box .antenna_image img{
+        transform: translate(0);
+    }
+
     nav .logo {
         margin-left: 10%;
     }

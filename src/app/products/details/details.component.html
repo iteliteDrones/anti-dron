@@ -27,12 +27,54 @@
               
               <div class="properties specification">
                 <h4>Specification</h4>
-                <p>{{detailsChild.specification}}</p>
+                <ul>
+                  <li *ngIf="isString(detailsChild.specification['Frequency range']); else frequency_arr">Frequency range: {{ detailsChild.specification["Frequency range"] }}</li>
+                  <ng-template #frequency_arr>
+                    <p>Frequency range:</p>
+                    <ul>
+                      <li>{{detailsChild.specification['Frequency range'][0]['P1']}}</li>
+                      <li>{{detailsChild.specification['Frequency range'][0]['P2']}}</li>
+                    </ul>
+                  </ng-template>
+          
+                  <li *ngIf="isString(detailsChild.specification['Gain']); else gain_arr">Gain: {{ detailsChild.specification['Gain'] }}</li>
+                  <ng-template #gain_arr>
+                    <p>Gain:</p>
+                    <ul>
+                      <li>{{detailsChild.specification['Gain'][0]['P1']}}</li>
+                      <li>{{detailsChild.specification['Gain'][0]['P2']}}</li>
+                    </ul>
+                  </ng-template>
+          
+                  <li *ngIf="isString(detailsChild.specification['Beamwidth Azimuth']); else azimuth_arr">Beamwidth Azimuth: {{ detailsChild.specification["Beamwidth Azimuth"] }}</li>
+                  <ng-template #azimuth_arr>
+                    <p>Beamwidth Azimuth:</p>
+                    <ul>
+                      <li>{{detailsChild.specification['Beamwidth Azimuth'][0]['P1']}}</li>
+                      <li>{{detailsChild.specification['Beamwidth Azimuth'][0]['P2']}}</li>
+                    </ul>
+                  </ng-template>
+          
+                  <li *ngIf="isString(detailsChild.specification['Beamwidth Elevation']); else elevation_arr">Beamwidth Elevation: {{ detailsChild.specification["Beamwidth Elevation"] }}</li>
+                  <ng-template #elevation_arr>
+                    <p>Beamwidth Elevation:</p>
+                    <ul>
+                      <li>{{detailsChild.specification['Beamwidth Elevation'][0]['P1']}}</li>
+                      <li>{{detailsChild.specification['Beamwidth Elevation'][0]['P2']}}</li>
+                    </ul>
+                  </ng-template>
+          
+                  <li>VSWR: {{ detailsChild.specification["VSWR"] }}</li>
+                  <li>Impedance: {{ detailsChild.specification["Impedance"] }}</li>
+          
+                  <li>XPD (cross polarization discrimination): {{ detailsChild.specification["XPD (cross polarization discrimination)"] }}</li>
+                  <li>RF Interface: {{ detailsChild.specification["RF Interface"] }}</li>
+                </ul>
               </div>
             </div>
             
             <div class="antenna_image">
-              <img ngSrc="./assets/images/home/content/content_{{detailsChild.id}}.webp" width="auto" height="auto" alt="Antenna image" priority>
+              <img ngSrc="./assets/images/home/content/content_{{detailsChild.id}}.webp" width="430" height="auto" alt="Antenna image" priority>
             </div>
           </div>
       
@@ -69,12 +111,12 @@
       
             <div>
               <h4>{{detailsChild.charts.header}}</h4>
-              <img ngSrc="{{detailsChild.charts[0]}}.jpg" width="auto" height="auto" alt="Chart with realized gain." priority>
+              <img ngSrc="{{detailsChild.charts[0]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
       
             <div *ngIf="detailsChild.charts[1]">
               <h4>{{detailsChild.charts.header}}</h4>
-              <img ngSrc="{{detailsChild.charts[1]}}.jpg" width="auto" height="auto" alt="Chart with realized gain." priority>
+              <img ngSrc="{{detailsChild.charts[1]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
             
           </div>

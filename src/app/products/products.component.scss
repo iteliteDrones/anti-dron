@@ -8,6 +8,15 @@ app-details{
     z-index: 12;
 }
 
+$list: 440, 380, 430, 390;
+
+@for $i from 1 through 4{
+
+    :host .container-fluid:nth-of-type(#{$i}) ::ng-deep app-details .content .image img{
+        width: calc(nth($list, $i) * 1px);
+    }
+}
+
 .products{
     width: 100%;
     max-width: 1100px;
@@ -98,10 +107,19 @@ app-details{
 }
 
 @media (max-width: 520px) {
+
+
    .products {
+
     .product{
         width: 75%;
+
+        img{
+            left: -5px;
+        }
     }
+
+   
    } 
 }
 

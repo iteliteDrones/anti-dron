@@ -2,6 +2,8 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmi
 import { Input } from "@angular/core";
 
 import { gsap } from 'gsap/gsap-core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { imagesPath } from 'src/app/path';
 
 @Component({
   selector: 'app-details',
@@ -11,13 +13,18 @@ import { gsap } from 'gsap/gsap-core';
 })
 export class DetailsComponent implements AfterViewInit{
   
+  constructor(private deviceDet: DeviceDetectorService){}
+
   @Input() detailsChild;
   @Output() toParent: EventEmitter<object> = new EventEmitter<object>();
 
   @ViewChild("detailsContainer")
   detailsContainer: ElementRef;
 
-  ngAfterViewInit(): void {
+  protected imagesPath: string = imagesPath + "home/content/"+ this.detectDevice() +"content_";
+
+  ngAfterViewInit(): void
+  {
     const properties: HTMLCollection = this.detailsContainer.nativeElement.getElementsByClassName("properties");
 
     Array.from(properties)
@@ -34,6 +41,16 @@ export class DetailsComponent implements AfterViewInit{
   protected isNumber(width): boolean
   {
     return typeof width == "number";
+  }
+
+  isString(data): boolean
+  {
+    return typeof data == "string";
+  }
+
+  private detectDevice(): string
+  {
+    return this.deviceDet.isMobile()? "mobile/": "";
   }
 
 }
