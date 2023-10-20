@@ -16,7 +16,9 @@
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
-          "extraWebpackConfig": "webpack.config.js",
+          "customWebpackConfig": {
+            "path": "./webpack.config.js"
+          },
           "options": {
             "outputPath": "dist/anti-drone",
             "index": "src/index.html",
