@@ -43,6 +43,12 @@ $anti-drone-theme: mat.define-light-theme((
   padding: 0 ;
   margin-bottom: 0;
   cursor: none !important;
+
+  &:not(mat-icon)
+  {
+    font-family: Akshar !important;
+  }
+  
 }
 
 html, body { height: 100%; overflow-x: hidden;}
@@ -129,7 +135,6 @@ nav{
   min-height: 100vh;
 
   padding-top: 92px;
-  padding-left: 119px;
 
   position: relative;
   padding-bottom: 120px;
@@ -154,6 +159,10 @@ nav{
 @media (max-width: 1000px) {
   .ball{
     display: none;
+  }
+
+  .container-fluid{
+    padding-left: 0;
   }
   
 }

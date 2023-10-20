@@ -8,7 +8,7 @@ import { imagesPath } from 'src/app/path';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['../../details.scss'],
+  styleUrls: ['../../details.scss', '../../../../node_modules/bootstrap/scss/bootstrap.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements AfterViewInit{

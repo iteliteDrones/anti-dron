@@ -6,7 +6,7 @@ import gsap from 'gsap';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss', '../../../node_modules/bootstrap/scss/bootstrap.scss']
 })
 export class NewsComponent implements AfterViewInit{
 

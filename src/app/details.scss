@@ -21,6 +21,8 @@ $content_text_margin_top: 30px;
         width: 667px;
         margin-top: 150px;
 
+        transform: translate(15%);
+
         h3 {
             font-size: 100px;
             font-weight: 600;
@@ -132,6 +134,20 @@ $content_text_margin_top: 30px;
 
             padding-bottom: 35px;
             border-bottom: 1px dotted rgb(138, 133, 133);
+
+            ul{
+                ul, li{
+                    margin-bottom: 16px;
+                }
+                
+                ul{
+
+                    li{
+                        margin-bottom: 0 !important;
+                    }
+                    
+                }
+            }
 
             &.mechanical_properties{
                 width: 100%;
@@ -340,9 +356,21 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     
 }
 
+@media (max-width: 750px) {
+    .content .particular_details{
+        width: 80%;
+    }
+}
+
 @media(max-width: 650px) {
-    .content .particular_details .box .antenna_image img{
-        transform: translate(0);
+    .content {
+
+        .particular_details{
+
+            .box .antenna_image img{
+                transform: translate(0);
+            }
+        } 
     }
 
     nav .logo {
