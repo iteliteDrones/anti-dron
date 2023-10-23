@@ -19,8 +19,8 @@ export class DetailsComponent implements AfterViewInit{
 
   protected img;
 
-  @Input() details: {value: generalDetails, id: number} | null = null;
-  @Input() set images (img) {
+  @Input() details:{value: generalDetails, id: number} | null = null;
+  @Input() set images (img){
     this.img = img;
   };
 

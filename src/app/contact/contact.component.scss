@@ -1,17 +1,17 @@
-.contact{
+.contact {
     position: relative;
     width: fit-content;
     margin: auto;
     margin-top: 120px;
     padding-bottom: 70px;
 
-    p{
+    p {
         font-size: 21px;
         margin-bottom: 14px;
         letter-spacing: 2px;
     }
 
-    h2{
+    h2 {
         position: absolute;
         top: 50%;
         left: -175%;
@@ -26,16 +26,16 @@
         z-index: -1;
     }
 
-    h4{
+    h4 {
         margin-bottom: 20px;
         margin-top: 44px;
     }
 }
 
-@media(max-width: 800px)
+@media (max-width: 800px)
 {
-    .contact{
-        h2{
+    .contact {
+        h2 {
             width: 100%;
         }
     }

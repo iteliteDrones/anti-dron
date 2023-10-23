@@ -5,9 +5,10 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { generalDetails } from './detailsTypes';
 
+import { generalDetails } from './detailsTypes';
 import { HomeService } from './home.service';
+
 import { CacheService } from 'ng2-cache';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
@@ -23,8 +24,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
     private deviceDet: DeviceDetectorService
   ) {}
 
-  private elements: HTMLCollectionOf<Element> =
-    document.getElementsByClassName('container-fluid');
+  private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
   protected images: Blob[] = [];
 
   details: generalDetails[] = [
@@ -65,6 +65,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   writeLine: ElementRef;
 
   ngOnInit(): void {
+
     const images = [], 
           result = this.cacheService.get('images'),
           isMobile = this.deviceDet.isMobile()? "/mobile": "",
@@ -83,7 +84,8 @@ export class HomeComponent implements AfterViewInit, OnInit {
           '/assets/images/home/content'+isMobile+'/content_' + Number(id + 1) + '.webp'
         )
         .then((img) => {
-          img.blob().then((blob: Blob | any) => {
+          img.blob()
+          .then((blob: Blob | any) => {
   
             const read = new FileReader();
             read.readAsDataURL(blob);
@@ -95,7 +97,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
 
               return resolve(true);
             };
-
             
           });
         });

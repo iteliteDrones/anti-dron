@@ -81,11 +81,11 @@
           <div class="properties mechanical_properties">
             <h4>Mechanical Properties</h4>
 
-            <div>
+            <div class="mech_data">
               Length: {{detailsChild.mechanical_properties.length}}cm
             </div>
 
-            <div *ngIf="isNumber(detailsChild.mechanical_properties.width); else arr">
+            <div class="mech_data" *ngIf="isNumber(detailsChild.mechanical_properties.width); else arr">
               Width: {{detailsChild.mechanical_properties.width}}cm
             </div>
             <ng-template #arr>
@@ -93,15 +93,15 @@
               <div>Width_2: {{detailsChild.mechanical_properties.width[1]}}cm</div>
             </ng-template>
 
-            <div>
+            <div class="mech_data">
               Weight: {{detailsChild.mechanical_properties.weight}} kg
             </div>
 
-            <div>
+            <div class="mech_data">
               Color: {{detailsChild.mechanical_properties.color}}
             </div>
 
-            <div>
+            <div class="mech_data">
               Material: {{detailsChild.mechanical_properties.material}}
             </div>
           </div>
