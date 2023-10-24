@@ -42,7 +42,6 @@ $anti-drone-theme: mat.define-light-theme((
   margin: 0;
   padding: 0 ;
   margin-bottom: 0;
-  cursor: none !important;
 
   &:not(mat-icon)
   {
@@ -146,23 +145,9 @@ nav{
 
 }
 
-.ball{
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #5f5a5a;
-  z-index: 13;
-  pointer-events: none;
-}
 
 @media (max-width: 1000px) {
-  .ball{
-    display: none;
-  }
-
   .container-fluid{
     padding-left: 0;
   }
-  
 }

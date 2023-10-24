@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "unused-css": "ngx-unused-css"
   },
   "private": true,
   "dependencies": {
@@ -30,9 +31,11 @@
     "ngx-device-detector": "^6.0.2",
     "ngx-resize-observer": "^2.5.2",
     "ngx-socket-io": "^4.5.1",
+    "purgecss-whitelister": "^2.4.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "webpack-bundle-analyzer": "^4.9.1",
+    "webpack-merge": "^5.10.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

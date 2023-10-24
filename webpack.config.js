@@ -1,21 +1,18 @@
-const glob = require('glob');
-const PurgeCSSPlugin = require('@fullhuman/postcss-purgecss');
+const whitelister = require('purgecss-whitelister');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+
+const glob = require("glob");
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'], 
-      }
-    ]
-  },
+
   plugins: [
-    new PurgeCSSPlugin({ paths: glob.sync('./src/**/*.html', { nodir: true }) })
+
+    new PurgecssPlugin({
+      keyframes: false,
+      paths: glob.sync('src/**/*', {
+        nodir: true
+      }),
+      whitelist: whitelister('bootstrap/dist/css/bootstrap.css')
+    }),
   ],
-  optimization: {
-    removeAvailableModules: false,
-    removeEmptyChunks: false,
-    splitChunks: false
-  }
-};
+}
