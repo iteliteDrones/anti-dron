@@ -3,12 +3,13 @@ import { Input } from "@angular/core";
 
 import { gsap } from 'gsap/gsap-core';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { imagesPath } from 'src/app/path';
+
+import { imagesPath } from '@app/path';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['../../details.scss', '../../../../node_modules/bootstrap/scss/bootstrap.scss'],
+  styleUrls: ['../../details.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsComponent implements AfterViewInit{

@@ -10,8 +10,8 @@
     <span class="line"></span>
   </section>
   
-  <div (onResize)="handleResize($event)" *ngFor="let e of details; let i = index" class="container-fluid">
-    <app-details [details]="{value: e, id: i}" [images]="images[i]"></app-details>
+  <div (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3];" class="container-fluid">
+    <app-details [details]="{value: details[e], id: e}" [images]="images[e]"></app-details>
   </div>
 
   <div id="counter">

@@ -42,8 +42,6 @@ export class DetailsService {
       if(!detailsService.flag) return;
       this.button.nativeElement.style.opacity = 0;
 
-      console.log(this);
-
       setTimeout(() => {
         this.button.nativeElement.style.display = "none";
         detailsService.flag = true;
@@ -62,7 +60,6 @@ export class DetailsService {
 
   leaveFromButton(this)
   {
-    console.log(this)
     this.detailsService.flag = false;
     clearTimeout(this.detailsService.time);
 

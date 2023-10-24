@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss', '../../node_modules/bootstrap/scss/bootstrap.scss']
@@ -9,11 +10,5 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
 
   title: string = 'anti-drone';
-
-  @ViewChild("nav_list")
-  navList: ElementRef | undefined;
-
-  @ViewChild("bar_menu")
-  barMenu: ElementRef | undefined;
 
 }
