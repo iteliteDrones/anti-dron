@@ -8,11 +8,11 @@ const routes: Routes = [
   {path: "contact", loadChildren: () => import("./contact/contact.module").then(m => m.ContactModule)},
   
   {path: "news", loadChildren: () => import("./news/news.module").then(m => m.NewsModule)},
-  {path: "**", component: HomeComponent, pathMatch: "full"}
+  {path: "**", component: HomeComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
